@@ -1,8 +1,13 @@
-var http = require('http');
+var express = require("express");
+var app     = express();
+var path    = require("path");
 
-var server = http.createServer(function(req,res){
-	res.writeHead(200,{'Content-Type':'text/html'});
-	res.end('<h1>Hello World</h1>');
+
+//app.use(express.static(__dirname + '/View'));
+app.use(express.static(__dirname + '/assests'));
+app.get('/',function(req,res){
+  res.sendFile(path.join(__dirname+'/index.html'));
+  //__dirname : It will resolve to your project folder.
 });
 var port = process.env.PORT||3000;
-server.listen(port);
+app.listen(port);
