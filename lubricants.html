@@ -3,11 +3,14 @@
 			<br>
 			<br>
             <hr>  
+             <div class="col-lg-8">
+            <div ui-view="paragraph"></div>
+            </div>
 		<uib-accordion close-others="oneAtATime">
              <div class="col-lg-4">
     <div uib-accordion-group class="panel-default" heading="Greases" >
         <strong>Food Grade</strong><br/>
-        SWEPCO 115 Food Machinery Grease<br/>
+        <a ui-sref ="lubricants.115">SWEPCO 115 Food Machinery Grease</a><br/>
         <strong>Multi-Purpose</strong><br/>
         SWEPCO 121 Tri-Plex Universal Grease<br/>
         SWEPCO 123 Ultra EP Multi-Service Grease<br/>
@@ -72,11 +75,6 @@
             </uib-accordion>
 		</div><!-- container -->
 <br/>
-<div class="container">
-    <uib-tabset active="active">
-    <uib-tab index="0" heading="BENEFITS"></uib-tab>
-        <uib-tab index="1" heading="MARKETS"></uib-tab>
-        <uib-tab index="2" heading="APPLICATIONS"></uib-tab>
-        <uib-tab index="3" heading="TECHNICAL DATA"></uib-tab>
-    </uib-tabset>
-</div>
+<div class="col-lg-8">
+            <div ui-view="tabular"></div>
+            </div>

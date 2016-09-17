@@ -1,57 +1,66 @@
 'use strict';
-var myApp = angular.module('myApp', ['ngRoute','ngAnimate', 'ngSanitize', 'ui.bootstrap']);
+var myApp = angular.module('myApp', ['ui.bootstrap','ui.router']);
 
-myApp.config(function($routeProvider,$locationProvider){
+myApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider){
   
-    $routeProvider 
+    $urlRouterProvider.otherwise('/home');
+    $stateProvider 
     
-    .when('/',{
-        templateUrl:'/home.html',
-        controller:'mainController'
+    .state('home',{
+        url:'/home',
+        templateUrl:'/home.html'
     })
-    .when('/about-swepco',{
-       templateUrl: '/about-swepco.html',
-       controller: 'mainController'
+    .state('about-swepco',{
+        url:'/about-swepco',
+       templateUrl: '/about-swepco.html'
    })
-   .when('/1933-our-heritage',{
-       templateUrl: '/1933-our-heritage.html',
-       controller: 'mainController'
+   .state('1933-our-heritage',{
+        url:'/1933-our-heritage',
+       templateUrl: '/1933-our-heritage.html'
    })
-   .when('/iso-certification',{
-       templateUrl: '/iso-certification.html',
-       controller: 'mainController'
+   .state('iso-certification',{
+        url:'/iso-certification',
+       templateUrl: '/iso-certification.html'
    })
-    .when('/quality-ingredients',{
-       templateUrl: '/quality-ingredients.html',
-       controller: 'mainController'
+    .state('quality-ingredients',{
+        url:'/quality-ingredients',
+       templateUrl: '/quality-ingredients.html'
    })
-    .when('/energy-star-partner',{
-       templateUrl: '/energy-star-partner.html',
-       controller: 'mainController'
+    .state('energy-star-partner',{
+        url:'/energy-star-partner',
+       templateUrl: '/energy-star-partner.html'
    })
-    .when('/environmental-stewards',{
-       templateUrl: '/environmental-stewards.html',
-       controller: 'mainController'
+    .state('environmental-stewards',{
+        url:'/environmental-stewards',
+       templateUrl: '/environmental-stewards.html'
    })
-    .when('/industry-associations',{
-       templateUrl: '/industry-associations.html',
-       controller: 'mainController'
+    .state('industry-associations',{
+        url:'/industry-associations',
+       templateUrl: '/industry-associations.html'
    })
-    .when('/reach-compliant',{
-       templateUrl: '/reach-compliant.html',
-       controller: 'mainController'
+    .state('reach-compliant',{
+        url:'/reach-compliant',
+       templateUrl: '/reach-compliant.html'
    })
-   .when('/lubricants',{
-       templateUrl: '/lubricants.html',
-       controller: 'mainController'
+   .state('lubricants',{
+        url:'/lubricants',
+       templateUrl: 'lubricants.html'
    })
-   .when('/contactUs',{
-       templateUrl: '/contactUs.html',
-       controller: 'mainController'
+    .state('lubricants.115',{
+        url:'/lubricants/115',    
+       views: {
+           'paragraph':{templateUrl:'115_paragraph.html'},
+           'tabular':{templateUrl:'115_tabular.html'}
+       }
    })
+   .state('contactUs',{
+        url:'/contactUs',
+       templateUrl: '/contactUs.html'
+   })
+
     
-    $locationProvider.html5Mode({enabled:true,requireBase:false});
-});
+   // $urlRouterProvider.html5Mode({enabled:true,requireBase:false});
+}]);
              
 myApp.controller('mainController',['$scope',function($scope){
   $scope.myInterval = 5000;
