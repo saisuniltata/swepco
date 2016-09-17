@@ -48,7 +48,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',functio
         controller:'mainController'
    })
     .state('lubricants.115',{
-        url:'/lubricants/115',    
+        url:'/115',    
        views: {
            'paragraph':{templateUrl:'115_paragraph.html'},
            'tabular':{templateUrl:'115_tabular.html'}
