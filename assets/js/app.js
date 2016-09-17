@@ -8,7 +8,8 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',functio
     
     .state('home',{
         url:'/home',
-        templateUrl:'/home.html'
+        templateUrl:'/home.html',
+        controller:'mainController'
     })
     .state('about-swepco',{
         url:'/about-swepco',
@@ -53,12 +54,18 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',functio
            'paragraph':{templateUrl:'115_paragraph.html'},
            'tabular':{templateUrl:'115_tabular.html'}
        }
+    })
+    .state('lubricants.121',{
+        url:'/121',    
+       views: {
+           'paragraph':{templateUrl:'121_paragraph.html'},
+           'tabular':{templateUrl:'121_tabular.html'}
+       }
    })
    .state('contactUs',{
         url:'/contactUs',
        templateUrl: '/contactUs.html'
    })
-
     
    $locationProvider.html5Mode({enabled:true,requireBase:false});
 }]);
@@ -85,8 +92,4 @@ myApp.controller('mainController',['$scope',function($scope){
   }
       $scope.oneAtATime = true;
                                    
-}]);
-
-myApp.controller('subController',['$scope',function($scope){
-    console.log('inside subController');
 }]);
