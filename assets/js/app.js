@@ -1,7 +1,7 @@
 'use strict';
 var myApp = angular.module('myApp', ['ui.bootstrap','ui.router']);
 
-myApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider){
+myApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',function($stateProvider, $urlRouterProvider,$locationProvider){
   
     $urlRouterProvider.otherwise('/home');
     $stateProvider 
@@ -44,7 +44,8 @@ myApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $u
    })
    .state('lubricants',{
         url:'/lubricants',
-       templateUrl: 'lubricants.html'
+       templateUrl: 'lubricants.html',
+        controller:'mainController'
    })
     .state('lubricants.115',{
         url:'/lubricants/115',    
@@ -59,7 +60,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $u
    })
 
     
-   // $urlRouterProvider.html5Mode({enabled:true,requireBase:false});
+   $locationProvider.html5Mode({enabled:true,requireBase:false});
 }]);
              
 myApp.controller('mainController',['$scope',function($scope){
@@ -82,7 +83,7 @@ myApp.controller('mainController',['$scope',function($scope){
   for (var i = 0; i < 5; i++) {
     $scope.addSlide();
   }
-      $scope.oneAtATime = false;
+      $scope.oneAtATime = true;
                                    
 }]);
 
