@@ -13,55 +13,147 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',functio
     })
     .state('about-swepco',{
         url:'/about-swepco',
-       templateUrl: '/about-swepco.html'
+       templateUrl: '/assets/static/about-swepco/about-swepco.html'
    })
    .state('1933-our-heritage',{
         url:'/1933-our-heritage',
-       templateUrl: '/1933-our-heritage.html'
+       templateUrl: '/assets/static/about-swepco/1933-our-heritage.html'
    })
    .state('iso-certification',{
         url:'/iso-certification',
-       templateUrl: '/iso-certification.html'
+       templateUrl: '/assets/static/about-swepco/iso-certification.html'
    })
     .state('quality-ingredients',{
         url:'/quality-ingredients',
-       templateUrl: '/quality-ingredients.html'
+       templateUrl: '/assets/static/about-swepco/quality-ingredients.html'
    })
     .state('energy-star-partner',{
         url:'/energy-star-partner',
-       templateUrl: '/energy-star-partner.html'
+       templateUrl: '/assets/static/about-swepco/energy-star-partner.html'
    })
     .state('environmental-stewards',{
         url:'/environmental-stewards',
-       templateUrl: '/environmental-stewards.html'
+       templateUrl: '/assets/static/about-swepco/environmental-stewards.html'
    })
     .state('industry-associations',{
         url:'/industry-associations',
-       templateUrl: '/industry-associations.html'
+       templateUrl: '/assets/static/about-swepco/industry-associations.html'
    })
     .state('reach-compliant',{
         url:'/reach-compliant',
-       templateUrl: '/reach-compliant.html'
+       templateUrl: '/assets/static/about-swepco/reach-compliant.html'
    })
    .state('lubricants',{
         url:'/lubricants',
-       templateUrl: 'lubricants.html',
+       templateUrl: '/assets/static/lubricants/lubricants.html',
         controller:'mainController'
    })
     .state('lubricants.115',{
         url:'/115',    
        views: {
-           'paragraph':{templateUrl:'115_paragraph.html'},
-           'tabular':{templateUrl:'115_tabular.html'}
+           'paragraph':{templateUrl:'/assets/static/lubricants/115_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/115_tabular.html'}
        }
     })
     .state('lubricants.121',{
         url:'/121',    
        views: {
-           'paragraph':{templateUrl:'121_paragraph.html'},
-           'tabular':{templateUrl:'121_tabular.html'}
+           'paragraph':{templateUrl:'/assets/static/lubricants/121_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/121_tabular.html'}
        }
    })
+    .state('lubricants.123',{
+        url:'/123',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/123_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/123_tabular.html'}
+       }
+   })
+    /*.state('lubricants.165',{
+        url:'/165',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/165_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/165_tabular.html'}
+       }
+   })
+    .state('lubricants.164',{
+        url:'/164',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/164_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/164_tabular.html'}
+       }
+   })
+    .state('lubricants.113',{
+        url:'/113',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/113_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/113_tabular.html'}
+       }
+   })
+    .state('lubricants.402',{
+        url:'/402',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/402_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/402_tabular.html'}
+       }
+   })
+    .state('lubricants.121',{
+        url:'/121',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/121_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/121_tabular.html'}
+       }
+   })
+    .state('lubricants.101',{
+        url:'/101',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/101_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/101_tabular.html'}
+       }
+   })
+    .state('lubricants.102',{
+        url:'/102',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/102_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/102_tabular.html'}
+       }
+   })
+    .state('lubricants.104',{
+        url:'/104',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/104_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/104_tabular.html'}
+       }
+   })
+    .state('lubricants.103',{
+        url:'/103',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/103_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/103_tabular.html'}
+       }
+   })
+    .state('lubricants.105',{
+        url:'/105',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/105_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/105_tabular.html'}
+       }
+   })
+    .state('lubricants.110',{
+        url:'/110',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/110_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/110_tabular.html'}
+       }
+   })
+    .state('lubricants.123',{
+        url:'/123',    
+       views: {
+           'paragraph':{templateUrl:'/assets/static/lubricants/123_paragraph.html'},
+           'tabular':{templateUrl:'/assets/static/lubricants/123_tabular.html'}
+       }
+   })
+   */
    .state('contactUs',{
         url:'/contactUs',
        templateUrl: '/contactUs.html'
