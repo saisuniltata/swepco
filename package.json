@@ -22,7 +22,7 @@
   "homepage": "https://github.com/saisuniltata/swepco#readme",
   "dependencies": {
       "express":"4.14.0",
-      "body-Parser":"1.15.2"
+      "body-parser":"1.15.2"
       
   }
 }
