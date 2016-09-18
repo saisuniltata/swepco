@@ -36,7 +36,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a ui-sref="home" >Home</a></li>
-			<li class="dropdown">
+			<li class="dropdown" uib-dropdown is-open="status.isopen" ng-mouseover="status.isopen = true" ng-mouseleave="status.isopen = false">
                 <a ui-sref="about-swepco" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Swepco <span class="caret"></span></a>
                 <ul class="dropdown-menu">
               <li><a ui-sref="1933-our-heritage">Since 1933</a></li>
