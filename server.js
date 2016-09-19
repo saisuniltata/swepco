@@ -11,7 +11,8 @@ app.get('/*',function(req,res){
   //__dirname : It will resolve to your project folder.
 });
 app.get('/lubricants/*',function(req,res){
-  res.sendFile(path.join(__dirname+'/index.html'));
+  res.sendFile(path.join(__dirname+'/index.html'),{root:__dirname+'/lubricants'});
+    
   //__dirname : It will resolve to your project folder.
 });
 var port = process.env.PORT||3000;
