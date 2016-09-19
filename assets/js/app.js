@@ -69,7 +69,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',functio
            'tabular':{templateUrl:'/assets/static/lubricants/123_tabular.html'}
        }
    })
-    /*.state('lubricants.165',{
+    .state('lubricants.165',{
         url:'/165',    
        views: {
            'paragraph':{templateUrl:'/assets/static/lubricants/165_paragraph.html'},
@@ -153,7 +153,6 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',functio
            'tabular':{templateUrl:'/assets/static/lubricants/123_tabular.html'}
        }
    })
-   */
    .state('contactUs',{
         url:'/contactUs',
        templateUrl: '/contactUs.html'
