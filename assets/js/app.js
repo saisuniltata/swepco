@@ -158,13 +158,13 @@ myApp.controller('mainController',['$scope',function($scope){
     var newWidth = slides.length + 1;
     slides.push({
       image: 'assets/img/homeslider' + newWidth+'.jpg',
-      text: ['Nice image','Awesome photograph','That is so cool','I love that'][slides.length % 4],
+      text: ['Environmental Stewards','Energy Star Partner','ISO 9001 Certified','LabTec Fluid Analysis Program','SWEPCO 201 Multi-Purpose Gear Lube'][slides.length % 5],
       id: currIndex++
     });
   };
 
   
-  for (var i = 0; i < 5; i++) {
+  for (var i = 1; i <= 5; i++) {
     $scope.addSlide();
   }
       $scope.oneAtATime = true;
