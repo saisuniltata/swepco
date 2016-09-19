@@ -11,7 +11,7 @@ app.get('/*',function(req,res){
   //__dirname : It will resolve to your project folder.
 });
 app.get('/lubricants/123',function(req,res){
-  res.sendFile(path.join(__dirname+'/index.html'));
+  res.sendFile(path.join(__dirname+'/lubricants.html'));
   //__dirname : It will resolve to your project folder.
 });
 
