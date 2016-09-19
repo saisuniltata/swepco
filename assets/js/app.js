@@ -97,13 +97,6 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',functio
            'tabular':{templateUrl:'/assets/static/lubricants/402_tabular.html'}
        }
    })
-    .state('lubricants.121',{
-        url:'/121',    
-       views: {
-           'paragraph':{templateUrl:'/assets/static/lubricants/121_paragraph.html'},
-           'tabular':{templateUrl:'/assets/static/lubricants/121_tabular.html'}
-       }
-   })
     .state('lubricants.101',{
         url:'/101',    
        views: {
@@ -144,13 +137,6 @@ myApp.config(['$stateProvider', '$urlRouterProvider','$locationProvider',functio
        views: {
            'paragraph':{templateUrl:'/assets/static/lubricants/110_paragraph.html'},
            'tabular':{templateUrl:'/assets/static/lubricants/110_tabular.html'}
-       }
-   })
-    .state('lubricants.123',{
-        url:'/123',    
-       views: {
-           'paragraph':{templateUrl:'/assets/static/lubricants/123_paragraph.html'},
-           'tabular':{templateUrl:'/assets/static/lubricants/123_tabular.html'}
        }
    })
    .state('contactUs',{
