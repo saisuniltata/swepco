@@ -167,6 +167,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', funct
     }).state('contactUs', {
         url: '/contactUs'
         , templateUrl: '/contactUs.html'
+        , controller: 'contactController'
     })
     $locationProvider.html5Mode({
         enabled: true
@@ -191,4 +192,7 @@ myApp.controller('mainController', ['$scope', function ($scope) {
         $scope.addSlide();
     }
     $scope.oneAtATime = true;
+}]);
+myApp.controller('contactController', ['$scope', function ($scope) {
+    $.getScript("https://www.google.com/recaptcha/api.js");
 }]);
