@@ -19,10 +19,10 @@
                 <br/> <span class="icon icon-phone"></span> Santosh G 9739572424
                 <br/> <span class="icon icon-envelop"></span> <a href="#"> swepcoindia@gmail.com</a>
                 <br/> </p>
-            <form name="myForm" class="form-horizontal" role="form">
+            <form name="myForm" class="form-horizontal" role="form" ng-submit="submit()" ng-controller="contactController">
                 <div class="form-group">
-                    <label for="company" class="col-xs-4 control-label">Company Name</label>
-                    <div class="col-xs-4">
+                    <label for="company" class="col-md-4 control-label">Company Name</label>
+                    <div class="col-md-4">
                         <input type="text" class="form-control" id="company" placeholder="Company Name" required> </div>
                 </div>
                 <div class="form-group">
@@ -61,8 +61,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="g-recaptcha pull-right" data-sitekey="6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt"></div>
-                </div>
+                    <!--<div class="g-recaptcha pull-right" data-sitekey="6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt"></div>--></div>
                 <div class="form-group">
                     <div class="col-md-4 pull-right">
                         <button type="submit" class="btn btn-success">Submit</button>

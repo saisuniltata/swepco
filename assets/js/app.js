@@ -681,21 +681,28 @@ myApp.controller('mainController', ['$scope', function ($scope) {
         ]
     };
             }]);
-myApp.controller('contactController', ['$scope', function ($scope) {
-    $.getScript("https://www.google.com/recaptcha/api.js");
-    $http.post("/contactUs", {
-        term: "searchString"
-    }, {
-        headers: {
-            'Content-Type': 'application/json'
+myApp.controller('contactController', ['$scope', '$http', function ($scope, $http) {
+    //$.getScript("https://www.google.com/recaptcha/api.js");
+    $scope.list = [];
+    $scope.text = '';
+    $scope.submit = function () {
+        if ($scope.text) {
+            $scope.list.push(this.text);
         }
-    }).
-    success(function (data, status, headers, config) {
-        console.log(data);
-    }).error(function (data, status, headers, config) {
-        console.log("error detected");
-    });
-        }]);
+        $http({
+            method: 'POST'
+            , url: '/contactUs'
+            , data: $scope.text, //forms user object
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }).success(function (data) {
+            console.log(data);
+        }).error(function (data) {
+            console.log("error detected");
+        });
+    }
+}]);
 myApp.directive('myTabular', function () {
     return {
         restrict: 'E'
