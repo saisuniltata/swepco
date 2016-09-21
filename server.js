@@ -16,7 +16,7 @@ app.get('/*', function (req, res) {
     //__dirname : It will resolve to your project folder.
 });
 app.post('/contactUs', function (req, res, next) {
-    console.log(req.body);
+    //console.log(req.body);
     var transporter = nodemailer.createTransport({
         service: 'yahoo'
         , auth: {
@@ -41,7 +41,7 @@ app.post('/contactUs', function (req, res, next) {
         }
         else {
             console.log('Message sent:' + info.response);
-            res.render('/contactUs');
+            res.redirect('/contactUs');
         }
     })
     res.redirect('/index.html');
