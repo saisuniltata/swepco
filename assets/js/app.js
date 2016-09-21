@@ -684,12 +684,19 @@ myApp.controller('mainController', ['$scope', function ($scope) {
 myApp.controller('contactController', ['$scope', '$http', function ($scope, $http) {
     //$.getScript("https://www.google.com/recaptcha/api.js");
     $scope.myForm = {};
-    $scope.user = {};
-    console.log($scope.user);
+    var payload = {
+        company: company
+        , firstname: firstname
+        , lastname: lastname
+        , phone: phone
+        , email: email
+        , comments: comments
+    };
+    console.log(payload);
     $http({
         method: 'POST'
         , url: '/contactUs'
-        , data: $scope.user, //forms user object
+        , data: payload, //forms user object
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
