@@ -672,10 +672,10 @@ myApp.controller('mainController', ['$scope', function ($scope) {
         , applications: ['This is applications1 ', 'This is applications2 ']
         , technical_data: [
             {
-                pdf: 'www.google.com'
+                pdf: 'https://www.google.com'
                 , description: 'This is google bitch'
             }, {
-                pdf: 'www.yahoo.com'
+                pdf: 'https://www.yahoo.com'
                 , description: 'This is yahoo bitch'
             }
         ]
