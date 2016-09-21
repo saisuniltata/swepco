@@ -43,7 +43,7 @@ app.post('/contactUs', function (req, res, next) {
             res.render('/contactUs');
         }
     })*/
-    res.redirect('/home');
+    res.redirect('/index.html');
 });
 app.listen(port);
 console.log("Node Server Listening on port 3000");
