@@ -683,6 +683,7 @@ myApp.controller('mainController', ['$scope', function ($scope) {
             }]);
 myApp.controller('contactController', ['$scope', '$http', function ($scope, $http) {
         //$.getScript("https://www.google.com/recaptcha/api.js");
+        $scope.myForm = {};
         $scope.user = {};
         console.log($scope.user);
         $http({
@@ -694,7 +695,7 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
             }
         }).success(function (data) {
             console.log('Got a response');
-            $scope.formName.$setPristine();
+            $scope.myForm.$setPristine();
             $scope.user = {};
         }).error(function (data) {
             console.log("error detected");
