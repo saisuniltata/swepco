@@ -703,6 +703,7 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
     $scope.reset = function () {
         $scope.user = {};
         $scope.myForm.$setPristine();
+        $scope.myForm.$setUntouched();
     }
 }]);
 myApp.directive('myTabular', function () {
