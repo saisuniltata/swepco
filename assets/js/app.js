@@ -682,26 +682,30 @@ myApp.controller('mainController', ['$scope', function ($scope) {
     };
             }]);
 myApp.controller('contactController', ['$scope', '$http', function ($scope, $http) {
-        //$.getScript("https://www.google.com/recaptcha/api.js");
-        //$scope.myForm = {};
+    //$.getScript("https://www.google.com/recaptcha/api.js");
+    $scope.myForm = {};
+    $scope.user = {};
+    console.log($scope.user);
+    $http({
+        method: 'POST'
+        , url: '/contactUs'
+        , data: $scope.user, //forms user object
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    }).success(function (data) {
+        console.log('Got a response');
         $scope.user = {};
-        console.log($scope.user);
-        $http({
-            method: 'POST'
-            , url: '/contactUs'
-            , data: $scope.user, //forms user object
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        }).success(function (data) {
-            console.log('Got a response');
-            $scope.myForm.$setPristine();
-            $scope.user = {};
-        }).error(function (data) {
-            console.log("error detected");
-        });
+        $scope.myForm.$setPristine();
+    }).error(function (data) {
+        console.log("error detected");
+    });
+    $scope.reset = function () {
+        $scope.user = {};
+        $scope.myForm.$setPristine();
     }
-]);
+};
+}]);
 myApp.directive('myTabular', function () {
     return {
         restrict: 'E'
