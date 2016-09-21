@@ -694,6 +694,8 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
             }
         }).success(function (data) {
             console.log('Got a response');
+            $scope.formName.$setPristine();
+            $scope.user = {};
         }).error(function (data) {
             console.log("error detected");
         });
