@@ -704,7 +704,6 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
         $scope.user = {};
         $scope.myForm.$setPristine();
     }
-};
 }]);
 myApp.directive('myTabular', function () {
     return {
