@@ -684,6 +684,7 @@ myApp.controller('mainController', ['$scope', function ($scope) {
 myApp.controller('contactController', ['$scope', '$http', function ($scope, $http) {
     //$.getScript("https://www.google.com/recaptcha/api.js");
     $scope.myForm = {};
+    $scope.user = {};
     var payload = {
         company: user.company
         , firstname: user.firstname
