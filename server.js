@@ -16,7 +16,9 @@ app.get('/*', function (req, res) {
     //__dirname : It will resolve to your project folder.
 });
 app.post('/contactUs', function (req, res, next) {
-    //console.log(req.body);
+    console.log('request body starts');
+    console.log(req);
+    console.log('request body ends');
     var transporter = nodemailer.createTransport({
         service: 'yahoo'
         , auth: {
