@@ -685,12 +685,12 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
     //$.getScript("https://www.google.com/recaptcha/api.js");
     $scope.myForm = {};
     var payload = {
-        company: company
-        , firstname: firstname
-        , lastname: lastname
-        , phone: phone
-        , email: email
-        , comments: comments
+        company: user.company
+        , firstname: user.firstname
+        , lastname: user.lastname
+        , phone: user.phone
+        , email: user.email
+        , comments: user.comments
     };
     console.log(payload);
     $http({
