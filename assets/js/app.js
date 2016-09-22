@@ -698,7 +698,7 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
             , url: '/contactUs'
             , data: $scope.user, //forms user object
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/json'
             }
         }).success(function (data) {
             console.log('Got a response');
