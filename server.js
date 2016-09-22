@@ -17,7 +17,7 @@ app.get('/*', function (req, res) {
 });
 app.post('/contactUs', function (req, res, next) {
     console.log('request body starts');
-    console.log(req);
+    console.log(req.body);
     console.log('request body ends');
     var transporter = nodemailer.createTransport({
         service: 'yahoo'
