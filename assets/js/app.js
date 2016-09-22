@@ -682,7 +682,8 @@ myApp.controller('mainController', ['$scope', function ($scope) {
     };
             }]);
 myApp.controller('contactController', ['$scope', '$http', function ($scope, $http) {
-    $.getScript("https://www.google.com/recaptcha/api.js");
+    $.getScript("https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit“ async defer");
+    var vm = this;
     var user = {
         "company": ""
         , "firstname": ""
@@ -703,9 +704,9 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
             }
         }).success(function (data) {
             console.log('Got a response');
-            $scope.user = angular.copy(user);
             $scope.myForm.$setPristine();
             $scope.myForm.$setUntouched();
+            $scope.user = angular.copy(user);
         }).error(function (data) {
             console.log("error detected");
         });
