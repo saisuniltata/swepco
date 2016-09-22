@@ -691,13 +691,13 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
         , "email": ""
         , "comments": ""
     };
-    $scope.submit = function () {
+    $scope.submit = function (data) {
         $http({
             method: 'POST'
             , url: '/contactUs'
             , data: {
                 "hello": "message"
-            } + $scope.user, //forms user object
+            } + data, //forms user object
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
