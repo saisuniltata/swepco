@@ -683,20 +683,20 @@ myApp.controller('mainController', ['$scope', function ($scope) {
             }]);
 myApp.controller('contactController', ['$scope', '$http', function ($scope, $http) {
     //$.getScript("https://www.google.com/recaptcha/api.js");
-    console.log($scope.user);
-    var blank = {
-        company: ""
-        , firstname: ""
-        , lastname: ""
-        , phone: ""
-        , email: ""
-        , comments: ""
+    console.log($scope.user.name);
+    var user = {
+        "company": ""
+        , "firstname": ""
+        , "lastname": ""
+        , "phone": ""
+        , "email": ""
+        , "comments": ""
     };
     $http({
         method: 'POST'
         , url: '/contactUs'
         , data: {
-            hello: "message"
+            "hello": "message"
         } + $scope.user, //forms user object
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -708,7 +708,7 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
         console.log("error detected");
     });
     $scope.reset = function () {
-        $scope.user = angular.copy(blank);
+        $scope.user = angular.copy(user);
         $scope.myForm.$setPristine();
         $scope.myForm.$setUntouched();
     }
