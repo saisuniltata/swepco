@@ -702,8 +702,7 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
         }
     }).success(function (data) {
         console.log('Got a response');
-        $scope.user = angular.copy(
-            default);;
+        $scope.user = angular.copy(blank);;
         $scope.myForm.$setPristine();
     }).error(function (data) {
         console.log("error detected");
