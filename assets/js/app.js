@@ -685,15 +685,15 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
     //$.getScript("https://www.google.com/recaptcha/api.js");
     $scope.myForm = {};
     $scope.user = {};
-    var payload = {
-        company: user.company
-        , firstname: user.firstname
-        , lastname: user.lastname
-        , phone: user.phone
-        , email: user.email
-        , comments: user.comments
-    };
     console.log(payload);
+    var payload = {
+        company: $scope.user.company
+        , firstname: $scope.user.firstname
+        , lastname: $scope.user.lastname
+        , phone: $scope.user.phone
+        , email: $scope.user.email
+        , comments: $scope.user.comments
+    };
     $http({
         method: 'POST'
         , url: '/contactUs'
