@@ -704,15 +704,13 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
             }
         }).success(function (data) {
             console.log('Got a response');
-            $scope.reset;
+            $scope.reset();
+            $scope.user = angular.copy(user);
+            $scope.myForm.$setPristine();
+            $scope.myForm.$setUntouched();
         }).error(function (data) {
             console.log("error detected");
         });
-    }
-    $scope.reset = function () {
-        $scope.user = angular.copy(user);
-        $scope.myForm.$setPristine();
-        $scope.myForm.$setUntouched();
     }
 }]);
 myApp.directive('myTabular', function () {
