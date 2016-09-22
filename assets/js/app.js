@@ -704,7 +704,6 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
             }
         }).success(function (data) {
             console.log('Got a response');
-            $scope.reset();
             $scope.user = angular.copy(user);
             $scope.myForm.$setPristine();
             $scope.myForm.$setUntouched();
