@@ -682,7 +682,7 @@ myApp.controller('mainController', ['$scope', function ($scope) {
     };
             }]);
 myApp.controller('contactController', ['$scope', '$http', function ($scope, $http) {
-    //$.getScript("https://www.google.com/recaptcha/api.js");
+    $.getScript("https://www.google.com/recaptcha/api.js");
     var user = {
         "company": ""
         , "firstname": ""

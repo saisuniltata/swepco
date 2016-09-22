@@ -5,6 +5,7 @@ var path = require('path');
 var port = process.env.PORT || 3000;
 var router = express.Router();
 var nodemailer = require('nodemailer');
+var request = require('request');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -16,7 +17,31 @@ app.get('/*', function (req, res) {
     //__dirname : It will resolve to your project folder.
 });
 app.post('/contactUs', function (req, res, next) {
-    console.log('request body starts');
+    if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
+        return res.json({
+            "responseCode": 1
+            , "responseDesc": "Please select captcha"
+        });
+    }
+    // Put your secret key here.
+    var secretKey = "6Lf5DwcUAAAAAE8LHG1acRK7X8h7HZ49CdWd5_XU";
+    // req.connection.remoteAddress will provide IP address of connected user.
+    var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
+    // Hitting GET request to the URL, Google will respond with success or error scenario.
+    request(verificationUrl, function (error, response, body) {
+        body = JSON.parse(body);
+        // Success will be true or false depending upon captcha validation.
+        if (body.success !== undefined && !body.success) {
+            return res.json({
+                "responseCode": 1
+                , "responseDesc": "Failed captcha verification"
+            });
+        }
+        res.json({
+            "responseCode": 0
+            , "responseDesc": "Sucess"
+        });
+    });
     console.log(req.body.email);
     console.log('request body ends');
     var transporter = nodemailer.createTransport({
