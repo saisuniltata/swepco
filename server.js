@@ -18,6 +18,7 @@ app.get('/*', function (req, res) {
 });
 app.post('/contactUs', function (req, res, next) {
     console.log('started');
+    console.log(req.body);
     if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
         console.log('inside if');
         return res.json({
@@ -47,7 +48,6 @@ app.post('/contactUs', function (req, res, next) {
             , "responseDesc": "Sucess"
         });
     });
-    console.log(req.body.email);
     console.log('request body ends');
     var transporter = nodemailer.createTransport({
         service: 'yahoo'

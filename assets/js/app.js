@@ -690,6 +690,7 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
         , "phone": ""
         , "email": ""
         , "comments": ""
+        , "g-recaptcha-response": ""
     };
     $scope.submit = function () {
         console.log($scope.user);
