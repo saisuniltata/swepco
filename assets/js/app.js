@@ -685,8 +685,7 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
     //$.getScript("https://www.google.com/recaptcha/api.js");
     $scope.myForm = {};
     console.log($scope.user);
-    var
-    default = {
+    var blank = {
         company: ""
         , firstname: ""
         , lastname: ""
