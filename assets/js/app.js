@@ -691,7 +691,7 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
         , phone: ""
         , email: ""
         , comments: ""
-    }
+    };
     $http({
         method: 'POST'
         , url: '/contactUs'
