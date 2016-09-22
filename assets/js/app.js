@@ -695,7 +695,9 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
     $http({
         method: 'POST'
         , url: '/contactUs'
-        , data: "message" + $scope.user, //forms user object
+        , data: {
+            hello: "message"
+        } + $scope.user, //forms user object
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
