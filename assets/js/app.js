@@ -695,6 +695,7 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
         , "myRecaptchaResponse": ""
     };
     $scope.submit = function (user) {
+        console.log($scope.user);
         $http({
             method: 'POST'
             , url: '/contactUs'
