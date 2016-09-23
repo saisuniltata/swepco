@@ -1,5 +1,5 @@
 'use strict';
-var myApp = angular.module('myApp', ['ui.bootstrap', 'ui.router']);
+var myApp = angular.module('myApp', ['ui.bootstrap', 'ui.router', 'vcRecaptcha']);
 myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/home');
     $stateProvider.state('home', {
@@ -681,10 +681,13 @@ myApp.controller('mainController', ['$scope', function ($scope) {
         ]
     };
             }]);
-myApp.controller('contactController', ['$scope', '$http', function ($scope, $http) {
-    $.getScript("https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit“ async defer");
-    var vm = this;
-    vm.publicKey = '';
+myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', function ($scope, $http, vcRecaptchaService) {
+    $scope.user = {
+        key: '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
+    };
+    $scope.setResponse = function (response) {
+        $scope.reCaptchaResponse = response;
+    };
     var user = {
         "company": ""
         , "firstname": ""
@@ -692,7 +695,7 @@ myApp.controller('contactController', ['$scope', '$http', function ($scope, $htt
         , "phone": ""
         , "email": ""
         , "comments": ""
-        , "g-recaptcha-response": ""
+        , "reCaptchaResponse": ""
     };
     $scope.submit = function () {
         console.log($scope.user);
