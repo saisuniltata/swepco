@@ -686,6 +686,7 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
     $scope.setResponse = function (response) {
         $scope.reCaptchaResponse = response;
     };
+    $scope.user["reCaptchaResponse"] = $scope.reCaptchaResponse;
     var user = {
         "company": ""
         , "firstname": ""
@@ -693,14 +694,14 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
         , "phone": ""
         , "email": ""
         , "comments": ""
-        , "reCaptchaResponse": ""
+        , reCaptchaResponse: ""
     };
     $scope.submit = function () {
         console.log($scope.user);
         $http({
             method: 'POST'
             , url: '/contactUs'
-            , data: $scope.user + $scope.reCaptchaResponse, //forms user object
+            , data: $scope.user, //forms user object
             headers: {
                 'Content-Type': 'application/json'
             }
