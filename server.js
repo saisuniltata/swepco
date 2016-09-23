@@ -35,14 +35,13 @@ request.post('https://www.google.com/recaptcha/api/siteverify', {
         console.log("Success");
     }
 });
-app.post('https://www.google.com/recaptcha/api/siteverify', )
-    /*  var data = {
-          remoteip: req.connection.remoteAddress
-          , response: req.body['g-recaptcha-response']
-      };
-      var recaptcha = new Recaptcha(PUBLIC_KEY, PRIVATE_KEY, data);
-      recaptcha.verify(function (success, error_code) {
-          if (success) {*/
+/*  var data = {
+      remoteip: req.connection.remoteAddress
+      , response: req.body['g-recaptcha-response'
+  };
+  var recaptcha = new Recaptcha(PUBLIC_KEY, PRIVATE_KEY, data);
+  recaptcha.verify(function (success, error_code) {
+      if (success) {*/
 res.send('Recaptcha response valid.');
 console.log('request body ends');
 //Node Mailer starts
