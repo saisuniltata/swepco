@@ -22,7 +22,7 @@ app.get('/*', function (req, res) {
 });
 app.post('/contactUs', function (req, res, next) {
     console.log(req.body);
-    var requestQuery = req.query;
+    var requestQuery = req.body.myRecaptchaResponse;
     if (requestQuery != undefined && requestQuery != '' && requestQuery != null && requestQuery.response != undefined && requestQuery.response != '' && requestQuery.response != null) {
         var response = requestQuery.response;
         var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body.myRecaptchaResponse;
