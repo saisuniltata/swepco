@@ -25,7 +25,7 @@
       "body-parser":"1.15.2",
 	  "nodemailer":"2.6.0",
 	  "request":"2.75.0",
-	  "recaptcha":"1.2.1"
+	  "recaptcha2":"1.0.8"
       
   }
 }
