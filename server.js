@@ -21,64 +21,63 @@ app.get('/*', function (req, res) {
     //__dirname : It will resolve to your project folder.
 });
 app.post('/contactUs', function (req, res, next) {
-    console.log(req.body);
-    var requestQuery = req.query;
-    if (requestQuery != undefined && requestQuery != '' && requestQuery != null && requestQuery.response != undefined && requestQuery.response != '' && requestQuery.response != null) {
-        var response = requestQuery.response;
-        var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body.myRecaptchaResponse;
-        // Hitting GET request to the URL, Google will respond with success or error scenario.
-        request(verificationUrl, function (error, response, body) {
-            body = JSON.parse(body);
-            // Success will be true or false depending upon captcha validation.
-            if (body.success !== undefined && !body.success) {
+            console.log(req.body);
+            var requestQuery = req.query;
+            if (requestQuery != undefined && requestQuery != '' && requestQuery != null && requestQuery.response != undefined && requestQuery.response != '' && requestQuery.response != null) {
+                var response = requestQuery.response;
+                var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body.myRecaptchaResponse;
+                // Hitting GET request to the URL, Google will respond with success or error scenario.
+                request(verificationUrl, function (error, response, body) {
+                    body = JSON.parse(body);
+                    // Success will be true or false depending upon captcha validation.
+                    if (body.success !== undefined && !body.success) {
+                        console.log('inside body.success');
+                        res.send({
+                            "responseCode": 1
+                            , "responseDesc": "Failed captcha verification"
+                        });
+                    }
+                    else {
+                        res.send({
+                            console.log('inside body.fail');
+                            "responseCode": 0, "responseDesc": "Success"
+                        });
+                    }
+                });
+            }
+            else {
+                console.log('inside requestquery else');
+            }
+            console.log('inside 
                 res.send({
                     "responseCode": 1
                     , "responseDesc": "Failed captcha verification"
                 });
-            }
-            else {
-                res.send({
-                    "responseCode": 0
-                    , "responseDesc": "Sucess"
+                var transporter = nodemailer.createTransport({
+                    service: 'yahoo'
+                    , auth: {
+                        user: 'sunil_fire_ice@yahoo.com'
+                        , pass: 'S#2303unil'
+                    }
+                    , tls: {
+                        rejectUnauthorized: false
+                    }
                 });
-            }
-        });
-    }
-    else {
-        res.send({
-            "responseCode": 1
-            , "responseDesc": "Failed captcha verification"
-        });
-    }
-    var transporter = nodemailer.createTransport({
-        service: 'yahoo'
-        , auth: {
-            user: 'sunil_fire_ice@yahoo.com'
-            , pass: 'S#2303unil'
-        }
-        , tls: {
-            rejectUnauthorized: false
-        }
-    });
-    var mailOptions = {
-        from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
-        , to: req.body.email
-        , subject: 'Swepco lubes'
-        , text: 'Swepco testing text'
-        , html: '<p>Swepco testing text</p>'
-    };
-    transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-            console.log(error);
-            res.redirect('/');
-        }
-        else {
-            console.log('Message sent:' + info.response);
-            res.redirect('/contactUs');
-        }
-    });
-    console.log('request body ends');
-    //Node Mailer starts
-});
-app.listen(port);
-console.log("Node Server Listening on port 3000");
+                var mailOptions = {
+                    from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
+                    , to: req.body.email
+                    , subject: 'Swepco lubes'
+                    , text: 'Swepco testing text'
+                    , html: '<p>Swepco testing text</p>'
+                }; transporter.sendMail(mailOptions, function (error, info) {
+                    if (error) {
+                        console.log(error);
+                        res.redirect('/');
+                    }
+                    else {
+                        console.log('Message sent:' + info.response);
+                        res.redirect('/contactUs');
+                    }
+                }); console.log('request body ends');
+                //Node Mailer starts
+            }); app.listen(port); console.log("Node Server Listening on port 3000");
