@@ -682,9 +682,7 @@ myApp.controller('mainController', ['$scope', function ($scope) {
     };
             }]);
 myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', function ($scope, $http, vcRecaptchaService) {
-    $scope.user = {
-        key: '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
-    };
+    $scope.key = '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt';
     $scope.setResponse = function (response) {
         $scope.reCaptchaResponse = response;
     };
@@ -702,7 +700,7 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
         $http({
             method: 'POST'
             , url: '/contactUs'
-            , data: $scope.user, //forms user object
+            , data: $scope.user + $scope.reCaptchaResponse, //forms user object
             headers: {
                 'Content-Type': 'application/json'
             }
