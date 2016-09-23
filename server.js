@@ -21,7 +21,8 @@ app.get('/*', function (req, res) {
     //__dirname : It will resolve to your project folder.
 });
 app.post('/contactUs', function (req, res, next) {
-    console.log(req.body);
+    console.log('First' + req.body['myRecaptchaResponse']);
+    console.log(req.body.myRecaptchaResponse);
     var requestQuery = req.body.myRecaptchaResponse;
     if (requestQuery != undefined && requestQuery != '' && requestQuery != null) {
         console.log('inside requestQuery');
