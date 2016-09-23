@@ -692,23 +692,13 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
         , "phone": ""
         , "email": ""
         , "comments": ""
+        , "myRecaptchaResponse": ""
     };
     $scope.submit = function (user) {
-        console.log($scope.user.myRecaptcharesponse);
-        var payload = {
-            "company": $scope.company
-            , "firstname": $scope.firstname
-            , "lastname": $scope.lastname
-            , "phone": $scope.phone
-            , "email": $scope.email
-            , "comments": $scope.comments
-            , payload: $scope.reCaptchaResponse
-        };
-        console.log($scope.user);
         $http({
             method: 'POST'
             , url: '/contactUs'
-            , data: payload, //forms user object
+            , data: $scope.user, //forms user object
             headers: {
                 'Content-Type': 'application/json'
             }
