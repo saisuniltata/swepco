@@ -38,9 +38,10 @@ app.post('/contactUs', function (req, res, next) {
                         });
                     }
                     else {
+                        console.log('inside body.fail');
                         res.send({
-                            console.log('inside body.fail');
-                            "responseCode": 0, "responseDesc": "Success"
+                            "responseCode": 0
+                            , "responseDesc": "Success"
                         });
                     }
                 });
