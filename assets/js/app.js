@@ -682,11 +682,10 @@ myApp.controller('mainController', ['$scope', function ($scope) {
     };
             }]);
 myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', function ($scope, $http, vcRecaptchaService) {
-    $scope.key = '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt';
+    $scope.reCaptchaResponse = "";
     $scope.setResponse = function (response) {
         $scope.reCaptchaResponse = response;
     };
-    $scope.user["reCaptchaResponse"] = $scope.reCaptchaResponse;
     var user = {
         "company": ""
         , "firstname": ""
@@ -694,14 +693,13 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
         , "phone": ""
         , "email": ""
         , "comments": ""
-        , reCaptchaResponse: ""
     };
     $scope.submit = function () {
         console.log($scope.user);
         $http({
             method: 'POST'
             , url: '/contactUs'
-            , data: $scope.user, //forms user object
+            , data: $scope.reCaptchaResponse, //forms user object
             headers: {
                 'Content-Type': 'application/json'
             }
