@@ -705,9 +705,9 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
             }
         }).success(function (data) {
             console.log('Got a response' + data);
+            $scope.user = angular.copy(user);
             $scope.myForm.$setPristine();
             $scope.myForm.$setUntouched();
-            $scope.user = angular.copy(user);
         }).error(function (data) {
             console.log("error detected");
         });
