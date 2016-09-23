@@ -698,11 +698,20 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
         , "comments": ""
     };
     $scope.submit = function () {
+        var payload = {
+            "company": $scope.company
+            , "firstname": $scope.firstname
+            , "lastname": $scope.lastname
+            , "phone": $scope.phone
+            , "email": $scope.email
+            , "comments": $scope.comments
+            , payload: $scope.reCaptchaResponse
+        };
         console.log($scope.user);
         $http({
             method: 'POST'
             , url: '/contactUs'
-            , data: $scope.reCaptchaResponse, //forms user object
+            , data: payload, //forms user object
             headers: {
                 'Content-Type': 'application/json'
             }
