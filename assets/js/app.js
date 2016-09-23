@@ -682,13 +682,6 @@ myApp.controller('mainController', ['$scope', function ($scope) {
     };
             }]);
 myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', function ($scope, $http, vcRecaptchaService) {
-    $scope.model = {
-        key: "6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt"
-    }
-    $scope.reCaptchaResponse = "";
-    $scope.setResponse = function (response) {
-        $scope.reCaptchaResponse = response;
-    };
     var user = {
         "company": ""
         , "firstname": ""
@@ -697,7 +690,8 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
         , "email": ""
         , "comments": ""
     };
-    $scope.submit = function () {
+    $scope.submit = function (user) {
+        console.log(user.myRecaptcharesponse);
         var payload = {
             "company": $scope.company
             , "firstname": $scope.firstname

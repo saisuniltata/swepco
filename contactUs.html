@@ -20,7 +20,7 @@
                 <br/> <span class="icon icon-envelop"></span> <a href="#"> swepcoindia@gmail.com</a>
                 <br/> </p>
             <div ng-controller="contactController">
-                <form name="myForm" class="form-horizontal" role="form" ng-submit="submit()">
+                <form name="myForm" class="form-horizontal" role="form" ng-submit="submit(user)">
                     <div class="form-group">
                         <label for="company" class="col-md-4 control-label">Company Name</label>
                         <div class="col-md-4">
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div vc-recaptcha key="model.key" on-success="setResponse(response)"></div>
+                        <div vc-recaptcha key="" ng-model="user.myRecaptchaResponse"></div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-4">
