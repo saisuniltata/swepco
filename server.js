@@ -21,59 +21,56 @@ app.get('/*', function (req, res) {
     //__dirname : It will resolve to your project folder.
 });
 app.post('/contactUs', function (req, res, next) {
-console.log('started');
-request.post('https://www.google.com/recaptcha/api/siteverify', {
-    json: {
-        secret: PUBLIC_KEY
-        , response: PRIVATE_KEY
-    }
-}, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-        console.log(body)
-    }
-    else {
-        console.log("Success");
-    }
-});
-/*  var data = {
-      remoteip: req.connection.remoteAddress
-      , response: req.body['g-recaptcha-response'
-  };
-  var recaptcha = new Recaptcha(PUBLIC_KEY, PRIVATE_KEY, data);
-  recaptcha.verify(function (success, error_code) {
-      if (success) {*/
-res.send('Recaptcha response valid.');
-console.log('request body ends');
-//Node Mailer starts
-var transporter = nodemailer.createTransport({
-    service: 'yahoo'
-    , auth: {
-        user: 'sunil_fire_ice@yahoo.com'
-        , pass: 'S#2303unil'
-    }
-    , tls: {
-        rejectUnauthorized: false
-    }
-});
-var mailOptions = {
-    from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
-    , to: req.body.email
-    , subject: 'Swepco lubes'
-    , text: 'Swepco testing text'
-    , html: '<p>Swepco testing text</p>'
-};
-transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-        console.log(error);
-        res.redirect('/');
-    }
-    else {
-        console.log('Message sent:' + info.response);
-        res.redirect('/contactUs');
-    }
-})
-}
-});
-});
-app.listen(port);
-console.log("Node Server Listening on port 3000");
+            console.log('started');
+            request.post('https://www.google.com/recaptcha/api/siteverify', {
+                json: {
+                    secret: PUBLIC_KEY
+                    , response: PRIVATE_KEY
+                }
+            }, function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    console.log(body)
+                }
+                else {
+                    console.log("Success");
+                }
+            });
+            /*  var data = {
+                  remoteip: req.connection.remoteAddress
+                  , response: req.body['g-recaptcha-response'
+              };
+              var recaptcha = new Recaptcha(PUBLIC_KEY, PRIVATE_KEY, data);
+              recaptcha.verify(function (success, error_code) {
+                  if (success) {*/
+            res.send('Recaptcha response valid.');
+            console.log('request body ends');
+            //Node Mailer starts
+            var transporter = nodemailer.createTransport({
+                service: 'yahoo'
+                , auth: {
+                    user: 'sunil_fire_ice@yahoo.com'
+                    , pass: 'S#2303unil'
+                }
+                , tls: {
+                    rejectUnauthorized: false
+                }
+            });
+            var mailOptions = {
+                from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
+                , to: req.body.email
+                , subject: 'Swepco lubes'
+                , text: 'Swepco testing text'
+                , html: '<p>Swepco testing text</p>'
+            };
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                    res.redirect('/');
+                }
+                else {
+                    console.log('Message sent:' + info.response);
+                    res.redirect('/contactUs');
+                }
+            })
+        }
+        app.listen(port); console.log("Node Server Listening on port 3000");
