@@ -23,11 +23,12 @@ app.get('/*', function (req, res) {
 app.post('/contactUs', function (req, res, next) {
     console.log(req.body);
     var requestQuery = req.body.myRecaptchaResponse;
-    if (requestQuery != undefined && requestQuery != '' && requestQuery != null && requestQuery.response != undefined && requestQuery.response != '' && requestQuery.response != null) {
-        var response = requestQuery.response;
+    if (requestQuery != undefined && requestQuery != '' && requestQuery != null) {
+        console.log('inside requestQuery');
         var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body.myRecaptchaResponse;
         // Hitting GET request to the URL, Google will respond with success or error scenario.
         request(verificationUrl, function (error, response, body) {
+            console.log('inside request');
             body = JSON.parse(body);
             // Success will be true or false depending upon captcha validation.
             if (body.success !== undefined && !body.success) {
