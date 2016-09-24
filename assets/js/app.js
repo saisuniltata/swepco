@@ -707,7 +707,7 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
             console.log('Printing form' + $scope.myForm);
             $scope.user = angular.copy(defaultUser);
             $scope.myForm.$setPristine();
-            grecaptcha.reset();
+            // grecaptcha.reset();
             $scope.myForm.$setUntouched();
         }).error(function (data) {
             console.log("error detected");
