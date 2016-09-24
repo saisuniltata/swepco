@@ -685,7 +685,7 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
     $scope.model = {
         key: '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
     };
-    var user = {
+    var defaultUser = {
         "company": ""
         , "firstname": ""
         , "lastname": ""
@@ -705,7 +705,7 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
             }
         }).success(function (data) {
             console.log('Printing form' + $scope.myForm);
-            $scope.user = angular.copy(user);
+            $scope.user = angular.copy(defaultUser);
             $scope.myForm.$setPristine();
             $scope.myForm.$setUntouched();
         }).error(function (data) {
