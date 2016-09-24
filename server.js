@@ -16,6 +16,9 @@ app.use(bodyParser.urlencoded({
 }));
 //app.use(express.static(__dirname + '/View'));
 app.use('/', express.static(__dirname));
+app.use('/js', express.static(__dirname + '/js'));
+app.use('/css', express.static(__dirname + '/css'));
+app.use('/partials', express.static(__dirname + '/partials'));
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
     //__dirname : It will resolve to your project folder.
