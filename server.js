@@ -35,6 +35,7 @@ app.post('/contactUs', function (req, res, next) {
         var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body['myRecaptchaResponse'] + "&remoteip=" + req.connection.remoteAddress;
         // Hitting GET request to the URL, Google will respond with success or error scenario.
         request(verificationUrl, function (error, response, body) {
+            console.log('Inside request object');
             body = JSON.parse(body);
             // Success will be true or false depending upon captcha validation.
             if (body.success !== undefined && !body.success) {
@@ -65,10 +66,12 @@ app.post('/contactUs', function (req, res, next) {
                 };
                 transporter.sendMail(mailOptions, function (error, info) {
                     if (error) {
+                        console.log('Inside error mail');
                         console.log(error);
                         res.redirect('/');
                     }
                     else {
+                        console.log('Inside sending mail');
                         console.log('Message sent:' + info.response);
                         res.json({
                             "responseCode": 0
@@ -80,7 +83,6 @@ app.post('/contactUs', function (req, res, next) {
         });
     }
     else {
-        console.log('inside requestquery else');
         res.send({
             "responseCode": 1
             , "responseDesc": "Failed captcha verification"
