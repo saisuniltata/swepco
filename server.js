@@ -93,4 +93,4 @@ app.post('/contactUs', function (req, res, next) {
     //Node Mailer starts
 });
 app.listen(port);
-console.log("Node Server Listening on port 3000");
+console.log("Swepco Server Listening on port 3000");
