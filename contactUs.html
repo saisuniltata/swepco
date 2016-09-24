@@ -17,7 +17,7 @@
                 <br/> &nbsp; &nbsp; &nbsp; 8th Block Jayanagar, Bangalore - 560070
                 <br/> <span class="icon icon-phone"></span> Arjun S Galgali 7760088405
                 <br/> <span class="icon icon-phone"></span> Santosh G 9739572424
-                <br/> <span class="icon icon-envelop"></span> <a href="#"> swepcoindia@gmail.com</a>
+                <br/> <span class="icon icon-envelop"></span> <a href="mailto:swepcoindia@gmail.com"> swepcoindia@gmail.com</a>
                 <br/> </p>
             <div ng-controller="contactController">
                 <form name="myForm" class="form-horizontal" role="form" ng-submit="submit(user)">
@@ -62,9 +62,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div vc-recaptcha key="model.key" ng-model="user.myRecaptchaResponse"></div>
+                        <label for="captcha" class="col-md-4 control-label"></label>
+                        <div class="col-md-4">
+                            <div vc-recaptcha key="model.key" ng-model="user.myRecaptchaResponse"></div>
+                        </div>
                     </div>
                     <div class="form-group">
+                        <label for="submit" class="col-md-4 control-label"></label>
                         <div class="col-md-4">
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
