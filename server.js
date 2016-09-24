@@ -28,6 +28,7 @@ app.all('/*', function (req, res, next) {
     });
 });
 app.post('/contactUs', function (req, res, next) {
+    console.log('inside app post');
     console.log('First' + req.body['myRecaptchaResponse']);
     var requestQuery = req.body.myRecaptchaResponse;
     if (requestQuery != undefined && requestQuery != '' && requestQuery != null) {
