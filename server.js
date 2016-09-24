@@ -18,6 +18,8 @@ app.use(bodyParser.urlencoded({
 app.use('/', express.static(__dirname));
 app.use('/js', express.static(__dirname + '/assets/js'));
 app.use('/css', express.static(__dirname + '/assets/css'));
+app.use('/fonts', express.static(__dirname + '/assets/fonts'));
+app.use('/img', express.static(__dirname + '/assets/img'));
 app.use('/lubricants', express.static(__dirname + '/assests/static/lubricants'));
 app.all('/*', function (req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
