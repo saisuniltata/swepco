@@ -31,8 +31,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', funct
             url: '/reach-compliant'
             , templateUrl: '/assets/static/about-swepco/reach-compliant.html'
         }).state('lubricants', {
-            abstract: true
-            , url: '/lubricants'
+            url: '/lubricants'
             , templateUrl: '/assets/static/lubricants/lubricants.html'
             , controller: 'mainController'
         }).state('lubricants.115', {

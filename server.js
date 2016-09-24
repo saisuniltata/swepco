@@ -19,9 +19,11 @@ app.use('/', express.static(__dirname));
 app.use('/js', express.static(__dirname + '/assets/js'));
 app.use('/css', express.static(__dirname + '/assets/css'));
 app.use('/lubricants', express.static(__dirname + '/assests/static/lubricants'));
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
-    //__dirname : It will resolve to your project folder.
+app.all('/*', function (req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendFile('index.html', {
+        root: __dirname
+    });
 });
 app.post('/contactUs', function (req, res, next) {
     console.log('First' + req.body['myRecaptchaResponse']);
