@@ -3,9 +3,13 @@ var request = require('request');
 var bodyParser = require('body-parser');
 var app = express();
 var path = require('path');
+var nodemailer = require('nodemailer');
+var request = require('request');
+var generator = require('xoauth2');
 var port = process.env.PORT || 3000;
 var router = express.Router();
-var nodemailer = require('nodemailer');
+var PUBLIC_KEY = '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
+	, PRIVATE_KEY = '6Lf5DwcUAAAAAE8LHG1acRK7X8h7HZ49CdWd5_XU';
 var google = {
 	user: 'swepcoindia@gmail.com'
 	, clientId: '46978714862-bihoa2a35ksi077qdh4e0kghb7rrog82.apps.googleusercontent.com'
@@ -13,7 +17,6 @@ var google = {
 	, refreshToken: '1/sfA6o9CSLEMwJMRW7NXebUGSFYDQ7BkQnCirA1Ig1AQ'
 	, accessToken: 'ya29.Ci9pAwu5bLNmyNYp3mpATrTkTmMQnAyptLnJtLi55TkejDyh7sXSTZmTSnjIhc0JJg'
 }
-var generator = require('xoauth2');
 var xoauth2gen = generator.createXOAuth2Generator({
 	user: google.user
 	, clientId: google.clientId
@@ -21,15 +24,13 @@ var xoauth2gen = generator.createXOAuth2Generator({
 	, refreshToken: google.refreshToken
 	, accessToken: google.accessToken
 });
-xoauth2gen.getToken(function (err, token, accessToken) {
+xoauth2gen.getToken(function (err, token, accessToken, timeout) {
 	if (err) {
 		return console.log(err);
 	}
+	console.log(timeout);
 	console.log("Authorization: Bearer " + accessToken);
 });
-var request = require('request');
-var PUBLIC_KEY = '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
-	, PRIVATE_KEY = '6Lf5DwcUAAAAAE8LHG1acRK7X8h7HZ49CdWd5_XU';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true
