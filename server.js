@@ -65,12 +65,11 @@ app.post('/contactUs', function (req, res, next) {
 								, text: 'Swepco testing text'
 								, html: '<p>Swepco testing text</p>'
 							};
-							var propValue;
 							var mailOptions1 = {
 								from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
 								, to: 'arjungalgali@gmail.com, swepcoindia@gmail.com'
 								, subject: 'Swepco lubes'
-								, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments;
+								, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
 								, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + '</p>'
 							};
 							transporter.sendMail(mailOptions, function (error, info) {
