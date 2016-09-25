@@ -60,43 +60,43 @@ app.post('/contactUs', function (req, res, next) {
 					, auth: {
 						xoauth2: generator
 					}
-				})
-			}
-		});
-		var mailOptions = {
-			from: 'Swepco Lubes<swepcolubes@gmail.com>'
-			, to: req.body.email
-			, subject: 'Swepco lubes'
-			, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
-			, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + '</p>'
-		};
-		var mailOptions1 = {
-			from: 'Swepco Lubes<swepcolubes@gmail.com>'
-			, to: 'arjungalgali@gmail.com, swepcoindia@gmail.com,saisuniltata@gmail.com'
-			, subject: 'Swepco lubes'
-			, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
-			, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + '</p>'
-		};
-		transporter.sendMail(mailOptions, function (error, info) {
-			if (error) {
-				console.log('Error occured in sending mail to user' + error);
-				res.redirect('/');
-			}
-			else {
-				console.log('Message sent:' + info.response);
-				res.json({
-					"responseCode": 0
-					, "responseDesc": "Success"
 				});
-				res.end();
-			}
-		});
-		transporter.sendMail(mailOptions1, function (error, info) {
-			if (error) {
-				console.log('Error occured in sending mail to arjun and swepco india' + error);
-			}
-			else {
-				console.log('Message sent:' + info.response);
+				var mailOptions = {
+					from: 'Swepco Lubes<swepcolubes@gmail.com>'
+					, to: req.body.email
+					, subject: 'Swepco lubes'
+					, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
+					, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + '</p>'
+				};
+				var mailOptions1 = {
+					from: 'Swepco Lubes<swepcolubes@gmail.com>'
+					, to: 'arjungalgali@gmail.com, swepcoindia@gmail.com,saisuniltata@gmail.com'
+					, subject: 'Swepco lubes'
+					, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
+					, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + '</p>'
+				};
+				transporter.sendMail(mailOptions, function (error, info) {
+					if (error) {
+						console.log('Error occured in sending mail to user' + error);
+						res.redirect('/');
+					}
+					else {
+						console.log('Message sent:' + info.response);
+						res.json({
+							"responseCode": 0
+							, "responseDesc": "Success"
+						});
+						res.end();
+					}
+				});
+				transporter.sendMail(mailOptions1, function (error, info) {
+					if (error) {
+						console.log('Error occured in sending mail to arjun and swepco india' + error);
+					}
+					else {
+						console.log('Message sent:' + info.response);
+					}
+				});
 			}
 		});
 	}
