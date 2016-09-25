@@ -78,6 +78,7 @@ app.post('/contactUs', function (req, res, next) {
 							"responseCode": 0
 							, "responseDesc": "Success"
 						});
+						res.end();
 					}
 				});
 			}
@@ -90,7 +91,6 @@ app.post('/contactUs', function (req, res, next) {
 		});
 	}
 	console.log('request body ends');
-	res.end();
 	//Node Mailer starts
 });
 app.listen(port);
