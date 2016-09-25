@@ -28,10 +28,6 @@ app.get('/*', function (req, res, next) {
 	});
 });
 app.post('/contactUs', function (req, res, next) {
-	console.log('Contact us in post request');
-});
-/*
-app.post('/contactUs', function (req, res, next) {
 	console.log('inside app post');
 	console.log('First' + req.body['myRecaptchaResponse']);
 	var requestQuery = req.body.myRecaptchaResponse;
@@ -96,6 +92,6 @@ app.post('/contactUs', function (req, res, next) {
 	console.log('request body ends');
 	res.end();
 	//Node Mailer starts
-});*/
+});
 app.listen(port);
 console.log("Swepco Server Listening on port 3000");

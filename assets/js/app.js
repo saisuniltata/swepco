@@ -696,17 +696,7 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
 	};
 	$scope.submit = function (user) {
 		console.log($scope.user);
-		var config = {
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-			}
-		};
-		$http.post('/contactUs', user, config).success(function (data, status, headers, config) {
-			console.log('Sent successfully');
-		}).error(function (data, status, header, config) {
-			console.log('recorded error');
-		});
-		/*$http({
+		$http({
 			method: 'POST'
 			, url: '/contactUs'
 			, data: $scope.user, //forms user object
@@ -725,7 +715,7 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
 			$scope.myForm.$setUntouched();
 		}).error(function (data) {
 			console.log("error detected");
-		});*/
+		});
 	}
 }]);
 myApp.directive('myTabular', function () {
