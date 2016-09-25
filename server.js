@@ -48,18 +48,18 @@ app.post('/contactUs', function (req, res, next) {
 			}
 			else {
 				console.log("Passed successfully");
-				var transporter = nodemailer.createTransport({
-					service: 'yahoo'
+				var transporter = nodemailer.createTransport("SMTP", {
+					service: 'Gmail'
 					, auth: {
-						user: 'sunil_fire_ice@yahoo.com'
-						, pass: 'S#2303unil'
+						user: 'swepcoindia@gmail.com'
+						, pass: 'swepcoindia'
 					}
 					, tls: {
 						rejectUnauthorized: false
 					}
 				});
 				var mailOptions = {
-					from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
+					from: 'Swepco Lubes<swepcoindia@gmail.com>'
 					, to: req.body.email
 					, subject: 'Swepco lubes'
 					, text: 'Swepco testing text'
@@ -67,7 +67,7 @@ app.post('/contactUs', function (req, res, next) {
 				};
 				var mailOptions1 = {
 					from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
-					, to: 'arjungalgali@gmail.com, swepcoindia@gmail.com'
+					, to: 'arjungalgali@gmail.com, swepcoindia@gmail.com,saisuniltata@gmail.com'
 					, subject: 'Swepco lubes'
 					, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
 					, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + '</p>'
