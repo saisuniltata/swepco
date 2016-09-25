@@ -35,62 +35,65 @@ app.get('/*', function (req, res, next) {
 	});
 });
 app.post('/contactUs', function (req, res, next) {
-		console.log('inside app post');
-		console.log('First' + req.body);
-		var requestQuery = req.body.myRecaptchaResponse;
-		if (requestQuery != undefined && requestQuery != '' && requestQuery != null) {
-			console.log('inside requestQuery');
-			var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body['myRecaptchaResponse'] + "&remoteip=" + req.connection.remoteAddress;
-			// Hitting GET request to the URL, Google will respond with success or error scenario.
-			request(verificationUrl, function (error, response, body) {
-					console.log('Inside request object');
-					body = JSON.parse(body);
-					// Success will be true or false depending upon captcha validation.
-					if (body.success !== undefined && !body.success) {
-						console.log('Failed to authenticate');
-						return res.json({
-							"responseCode": 1
-							, "responseDesc": "Failed captcha verification"
-						});
-					}
-					else {
-						console.log("Passed successfully");
-						var transporter = nodemailer.createTransport({
-								service: 'gmail'
-								, auth: {
-									xoauth2: generator
-								})
-						}
-					});
-				var mailOptions1 = {
-					from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
-					, to: 'arjungalgali@gmail.com, swepcoindia@gmail.com,saisuniltata@gmail.com'
-					, subject: 'Swepco lubes'
-					, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
-					, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + '</p>'
-				}; transporter.sendMail(mailOptions, function (error, info) {
-					if (error) {
-						console.log(error);
-						res.redirect('/');
-					}
-					else {
-						console.log('Message sent:' + info.response);
-						res.json({
-							"responseCode": 0
-							, "responseDesc": "Success"
-						});
-						res.end();
-					}
-				}); transporter.sendMail(mailOptions1, function (error, info) {
-					if (error) {
-						console.log('The error is ' + error);
-					}
-					else {
-						console.log('Message sent:' + info.response);
-					}
+	console.log('inside app post');
+	console.log('First' + req.body);
+	var requestQuery = req.body.myRecaptchaResponse;
+	if (requestQuery != undefined && requestQuery != '' && requestQuery != null) {
+		console.log('inside requestQuery');
+		var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body['myRecaptchaResponse'] + "&remoteip=" + req.connection.remoteAddress;
+		// Hitting GET request to the URL, Google will respond with success or error scenario.
+		request(verificationUrl, function (error, response, body) {
+			console.log('Inside request object');
+			body = JSON.parse(body);
+			// Success will be true or false depending upon captcha validation.
+			if (body.success !== undefined && !body.success) {
+				console.log('Failed to authenticate');
+				return res.json({
+					"responseCode": 1
+					, "responseDesc": "Failed captcha verification"
 				});
 			}
+			else {
+				console.log("Passed successfully");
+				var transporter = nodemailer.createTransport({
+					service: 'gmail'
+					, auth: {
+						xoauth2: generator
+					}
+				})
+			}
 		});
+		var mailOptions1 = {
+			from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
+			, to: 'arjungalgali@gmail.com, swepcoindia@gmail.com,saisuniltata@gmail.com'
+			, subject: 'Swepco lubes'
+			, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
+			, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + '</p>'
+		};
+		transporter.sendMail(mailOptions, function (error, info) {
+			if (error) {
+				console.log(error);
+				res.redirect('/');
+			}
+			else {
+				console.log('Message sent:' + info.response);
+				res.json({
+					"responseCode": 0
+					, "responseDesc": "Success"
+				});
+				res.end();
+			}
+		});
+		transporter.sendMail(mailOptions1, function (error, info) {
+			if (error) {
+				console.log('The error is ' + error);
+			}
+			else {
+				console.log('Message sent:' + info.response);
+			}
+		});
+	}
+});
 }
 else {
 	res.send({
