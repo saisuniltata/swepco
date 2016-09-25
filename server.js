@@ -7,7 +7,7 @@ var path = require('path');
 var port = process.env.PORT || 3000;
 var router = express.Router();
 var nodemailer = require('nodemailer');
-var generator = require('xoauth2').xoauth2.createXOAuth2Generator({
+var generator = require('xoauth2').createXOAuth2Generator({
 	user: 'swepcoindia@gmail.com'
 	, clientId: '46978714862-bihoa2a35ksi077qdh4e0kghb7rrog82.apps.googleusercontent.com'
 	, clientSecret: '0lEN0cj3nhfy5qDLZloIh4Wm'
