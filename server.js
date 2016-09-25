@@ -1,18 +1,31 @@
 var express = require('express');
 var request = require('request');
-//var Recaptcha = require('recaptcha').Recaptcha;
 var bodyParser = require('body-parser');
 var app = express();
 var path = require('path');
 var port = process.env.PORT || 3000;
 var router = express.Router();
 var nodemailer = require('nodemailer');
-var generator = require('xoauth2').createXOAuth2Generator({
+var google = {
 	user: 'swepcoindia@gmail.com'
 	, clientId: '46978714862-bihoa2a35ksi077qdh4e0kghb7rrog82.apps.googleusercontent.com'
-	, clientSecret: '0lEN0cj3nhfy5qDLZloIh4Wm'
+	, clientsecret: '0lEN0cj3nhfy5qDLZloIh4Wm'
 	, refreshToken: '1/sfA6o9CSLEMwJMRW7NXebUGSFYDQ7BkQnCirA1Ig1AQ'
 	, accessToken: 'ya29.Ci9pAwu5bLNmyNYp3mpATrTkTmMQnAyptLnJtLi55TkejDyh7sXSTZmTSnjIhc0JJg'
+}
+var generator = require('xoauth2');
+var xoauth2gen = generator.createXOAuth2Generator({
+	user: google.user
+	, clientId: google.clientId
+	, clientSecret: google.clientsecret
+	, refreshToken: google.refreshToken
+	, accessToken: google.accessToken
+});
+xoauth2gen.getToken(function (err, token, accessToken) {
+	if (err) {
+		return console.log(err);
+	}
+	console.log("Authorization: Bearer " + accessToken);
 });
 var request = require('request');
 var PUBLIC_KEY = '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
