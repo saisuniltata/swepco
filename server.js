@@ -63,8 +63,15 @@ app.post('/contactUs', function (req, res, next) {
 				})
 			}
 		});
+		var mailOptions = {
+			from: 'Swepco Lubes<swepcolubes@gmail.com>'
+			, to: req.body.email
+			, subject: 'Swepco lubes'
+			, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
+			, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + '</p>'
+		};
 		var mailOptions1 = {
-			from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
+			from: 'Swepco Lubes<swepcolubes@gmail.com>'
 			, to: 'arjungalgali@gmail.com, swepcoindia@gmail.com,saisuniltata@gmail.com'
 			, subject: 'Swepco lubes'
 			, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
@@ -72,7 +79,7 @@ app.post('/contactUs', function (req, res, next) {
 		};
 		transporter.sendMail(mailOptions, function (error, info) {
 			if (error) {
-				console.log(error);
+				console.log('Error occured in sending mail to user' + error);
 				res.redirect('/');
 			}
 			else {
@@ -86,23 +93,21 @@ app.post('/contactUs', function (req, res, next) {
 		});
 		transporter.sendMail(mailOptions1, function (error, info) {
 			if (error) {
-				console.log('The error is ' + error);
+				console.log('Error occured in sending mail to arjun and swepco india' + error);
 			}
 			else {
 				console.log('Message sent:' + info.response);
 			}
 		});
 	}
+	else {
+		res.send({
+			"responseCode": 1
+			, "responseDesc": "Failed captcha verification"
+		});
+	}
 });
-}
-else {
-	res.send({
-		"responseCode": 1
-		, "responseDesc": "Failed captcha verification"
-	});
-}
 console.log('request body ends');
 //Node Mailer starts
-});
 app.listen(port);
 console.log("Swepco Server Listening on port 3000");
