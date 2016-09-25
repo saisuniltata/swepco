@@ -28,73 +28,74 @@ app.all('/*', function (req, res, next) {
 	});
 });
 app.post('/contactUs', function (req, res, next) {
-			console.log('Contact us in post request');
-		}
-		/*
-		app.post('/contactUs', function (req, res, next) {
-			console.log('inside app post');
-			console.log('First' + req.body['myRecaptchaResponse']);
-			var requestQuery = req.body.myRecaptchaResponse;
-			if (requestQuery != undefined && requestQuery != '' && requestQuery != null) {
-				console.log('inside requestQuery');
-				var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body['myRecaptchaResponse'] + "&remoteip=" + req.connection.remoteAddress;
-				// Hitting GET request to the URL, Google will respond with success or error scenario.
-				request(verificationUrl, function (error, response, body) {
-					console.log('Inside request object');
-					body = JSON.parse(body);
-					// Success will be true or false depending upon captcha validation.
-					if (body.success !== undefined && !body.success) {
-						console.log('Failed to authenticate');
-						return res.json({
-							"responseCode": 1
-							, "responseDesc": "Failed captcha verification"
-						});
-					}
-					else {
-						console.log("Passed successfully");
-						var transporter = nodemailer.createTransport({
-							service: 'yahoo'
-							, auth: {
-								user: 'sunil_fire_ice@yahoo.com'
-								, pass: 'S#2303unil'
-							}
-							, tls: {
-								rejectUnauthorized: false
-							}
-						});
-						var mailOptions = {
-							from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
-							, to: req.body.email
-							, subject: 'Swepco lubes'
-							, text: 'Swepco testing text'
-							, html: '<p>Swepco testing text</p>'
-						};
-						transporter.sendMail(mailOptions, function (error, info) {
-							if (error) {
-								console.log('Inside error mail');
-								console.log(error);
-								res.redirect('/');
-							}
-							else {
-								console.log('Inside sending mail');
-								console.log('Message sent:' + info.response);
-								res.json({
-									"responseCode": 0
-									, "responseDesc": "Success"
-								});
-							}
-						});
-					}
-				});
-			}
-			else {
-				res.send({
+	console.log('Contact us in post request');
+});
+/*
+app.post('/contactUs', function (req, res, next) {
+	console.log('inside app post');
+	console.log('First' + req.body['myRecaptchaResponse']);
+	var requestQuery = req.body.myRecaptchaResponse;
+	if (requestQuery != undefined && requestQuery != '' && requestQuery != null) {
+		console.log('inside requestQuery');
+		var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body['myRecaptchaResponse'] + "&remoteip=" + req.connection.remoteAddress;
+		// Hitting GET request to the URL, Google will respond with success or error scenario.
+		request(verificationUrl, function (error, response, body) {
+			console.log('Inside request object');
+			body = JSON.parse(body);
+			// Success will be true or false depending upon captcha validation.
+			if (body.success !== undefined && !body.success) {
+				console.log('Failed to authenticate');
+				return res.json({
 					"responseCode": 1
 					, "responseDesc": "Failed captcha verification"
 				});
 			}
-			console.log('request body ends');
-			res.end();
-			//Node Mailer starts
-		});*/
-		app.listen(port); console.log("Swepco Server Listening on port 3000");
+			else {
+				console.log("Passed successfully");
+				var transporter = nodemailer.createTransport({
+					service: 'yahoo'
+					, auth: {
+						user: 'sunil_fire_ice@yahoo.com'
+						, pass: 'S#2303unil'
+					}
+					, tls: {
+						rejectUnauthorized: false
+					}
+				});
+				var mailOptions = {
+					from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
+					, to: req.body.email
+					, subject: 'Swepco lubes'
+					, text: 'Swepco testing text'
+					, html: '<p>Swepco testing text</p>'
+				};
+				transporter.sendMail(mailOptions, function (error, info) {
+					if (error) {
+						console.log('Inside error mail');
+						console.log(error);
+						res.redirect('/');
+					}
+					else {
+						console.log('Inside sending mail');
+						console.log('Message sent:' + info.response);
+						res.json({
+							"responseCode": 0
+							, "responseDesc": "Success"
+						});
+					}
+				});
+			}
+		});
+	}
+	else {
+		res.send({
+			"responseCode": 1
+			, "responseDesc": "Failed captcha verification"
+		});
+	}
+	console.log('request body ends');
+	res.end();
+	//Node Mailer starts
+});*/
+app.listen(port);
+console.log("Swepco Server Listening on port 3000");
