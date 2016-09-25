@@ -706,7 +706,7 @@ myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', 
 		}).success(function (data) {
 			var output = '';
 			for (var property in data) {
-				output += property + ': ' + data[property] + '; ';
+				output += data[property];
 			}
 			console.log(output);
 			$scope.user = angular.copy(defaultUser);
