@@ -7,6 +7,13 @@ var path = require('path');
 var port = process.env.PORT || 3000;
 var router = express.Router();
 var nodemailer = require('nodemailer');
+var generator = require('xoauth2').xoauth2.createXOAuth2Generator({
+	user: 'swepcoindia@gmail.com'
+	, clientId: '46978714862-bihoa2a35ksi077qdh4e0kghb7rrog82.apps.googleusercontent.com'
+	, clientSecret: '0lEN0cj3nhfy5qDLZloIh4Wm'
+	, refreshToken: '1/sfA6o9CSLEMwJMRW7NXebUGSFYDQ7BkQnCirA1Ig1AQ'
+	, accessToken: 'ya29.Ci9pA5JtQWha-gRb7NXPQDr5b4AJGugSqXnbDBbBh1xoeVGLCOUqoNw7qeL4tJlZKQ'
+});
 var request = require('request');
 var PUBLIC_KEY = '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
 	, PRIVATE_KEY = '6Lf5DwcUAAAAAE8LHG1acRK7X8h7HZ49CdWd5_XU';
@@ -28,42 +35,40 @@ app.get('/*', function (req, res, next) {
 	});
 });
 app.post('/contactUs', function (req, res, next) {
-	console.log('inside app post');
-	console.log('First' + req.body);
-	var requestQuery = req.body.myRecaptchaResponse;
-	if (requestQuery != undefined && requestQuery != '' && requestQuery != null) {
-		console.log('inside requestQuery');
-		var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body['myRecaptchaResponse'] + "&remoteip=" + req.connection.remoteAddress;
-		// Hitting GET request to the URL, Google will respond with success or error scenario.
-		request(verificationUrl, function (error, response, body) {
-			console.log('Inside request object');
-			body = JSON.parse(body);
-			// Success will be true or false depending upon captcha validation.
-			if (body.success !== undefined && !body.success) {
-				console.log('Failed to authenticate');
-				return res.json({
-					"responseCode": 1
-					, "responseDesc": "Failed captcha verification"
-				});
-			}
-			else {
-				console.log("Passed successfully");
-				var transporter = nodemailer.createTransport('smtps://swepcoindia%40gmail.com:swepcoind@smtp.gmail.com');
-				var mailOptions = {
-					from: 'Swepco Lubes<swepcoindia@gmail.com>'
-					, to: req.body.email
-					, subject: 'Swepco lubes'
-					, text: 'Swepco testing text'
-					, html: '<p>Swepco testing text</p>'
-				};
+		console.log('inside app post');
+		console.log('First' + req.body);
+		var requestQuery = req.body.myRecaptchaResponse;
+		if (requestQuery != undefined && requestQuery != '' && requestQuery != null) {
+			console.log('inside requestQuery');
+			var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body['myRecaptchaResponse'] + "&remoteip=" + req.connection.remoteAddress;
+			// Hitting GET request to the URL, Google will respond with success or error scenario.
+			request(verificationUrl, function (error, response, body) {
+					console.log('Inside request object');
+					body = JSON.parse(body);
+					// Success will be true or false depending upon captcha validation.
+					if (body.success !== undefined && !body.success) {
+						console.log('Failed to authenticate');
+						return res.json({
+							"responseCode": 1
+							, "responseDesc": "Failed captcha verification"
+						});
+					}
+					else {
+						console.log("Passed successfully");
+						var transporter = nodemailer.createTransport({
+								service: 'gmail'
+								, auth: {
+									xoauth2: generator
+								})
+						}
+					});
 				var mailOptions1 = {
 					from: 'Swepco Lubes<sunil_fire_ice@yahoo.com>'
 					, to: 'arjungalgali@gmail.com, swepcoindia@gmail.com,saisuniltata@gmail.com'
 					, subject: 'Swepco lubes'
 					, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
 					, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + '</p>'
-				};
-				transporter.sendMail(mailOptions, function (error, info) {
+				}; transporter.sendMail(mailOptions, function (error, info) {
 					if (error) {
 						console.log(error);
 						res.redirect('/');
@@ -76,8 +81,7 @@ app.post('/contactUs', function (req, res, next) {
 						});
 						res.end();
 					}
-				});
-				transporter.sendMail(mailOptions1, function (error, info) {
+				}); transporter.sendMail(mailOptions1, function (error, info) {
 					if (error) {
 						console.log('The error is ' + error);
 					}
@@ -87,15 +91,15 @@ app.post('/contactUs', function (req, res, next) {
 				});
 			}
 		});
-	}
-	else {
-		res.send({
-			"responseCode": 1
-			, "responseDesc": "Failed captcha verification"
-		});
-	}
-	console.log('request body ends');
-	//Node Mailer starts
+}
+else {
+	res.send({
+		"responseCode": 1
+		, "responseDesc": "Failed captcha verification"
+	});
+}
+console.log('request body ends');
+//Node Mailer starts
 });
 app.listen(port);
 console.log("Swepco Server Listening on port 3000");

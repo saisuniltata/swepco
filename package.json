@@ -1,33 +1,33 @@
 {
-  "name": "swepco",
-  "version": "1.0.0",
-  "description": "A lubricant Company",
-  "main": "server.js",
-    "engines": {
-    "node": "4.1.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/saisuniltata/swepco.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/saisuniltata/swepco/issues"
-  },
-  "homepage": "https://github.com/saisuniltata/swepco#readme",
-  "dependencies": {
-      "express":"4.14.0",
-      "body-parser":"1.15.2",
-	  "nodemailer":"2.6.0",
-	  "request":"2.75.0",
-	  "node-recaptcha2":"2.1.2",
-	  "recaptcha":"1.2.1",
-	  "request":"2.75.0"
-      
-  }
+	"name": "swepco"
+	, "version": "1.0.0"
+	, "description": "A lubricant Company"
+	, "main": "server.js"
+	, "engines": {
+		"node": "4.1.1"
+	}
+	, "scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+		, "start": "node server.js"
+	}
+	, "repository": {
+		"type": "git"
+		, "url": "git+https://github.com/saisuniltata/swepco.git"
+	}
+	, "author": ""
+	, "license": "ISC"
+	, "bugs": {
+		"url": "https://github.com/saisuniltata/swepco/issues"
+	}
+	, "homepage": "https://github.com/saisuniltata/swepco#readme"
+	, "dependencies": {
+		"express": "4.14.0"
+		, "body-parser": "1.15.2"
+		, "nodemailer": "2.6.0"
+		, "request": "2.75.0"
+		, "node-recaptcha2": "2.1.2"
+		, "recaptcha": "1.2.1"
+		, "request": "2.75.0"
+		, "xoauth2": "1.2.0"
+	}
 }
