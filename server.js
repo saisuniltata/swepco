@@ -48,16 +48,7 @@ app.post('/contactUs', function (req, res, next) {
 			}
 			else {
 				console.log("Passed successfully");
-				var transporter = nodemailer.createTransport("SMTP", {
-					service: 'Gmail'
-					, auth: {
-						user: 'swepcoindia@gmail.com'
-						, pass: 'swepcoindia'
-					}
-					, tls: {
-						rejectUnauthorized: false
-					}
-				});
+				var transporter = nodemailer.createTransport('smtps://swepcoindia%40gmail.com:swepcoind@smtp.gmail.com');
 				var mailOptions = {
 					from: 'Swepco Lubes<swepcoindia@gmail.com>'
 					, to: req.body.email
