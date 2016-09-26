@@ -9,6 +9,7 @@ var generator = require('xoauth2');
 var shortid = require('shortid');
 var port = process.env.PORT || 3000;
 var pg = require('pg');
+pg.defaults.ssl = true;
 var client = new pg.Client();
 var PUBLIC_KEY = '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
 	, PRIVATE_KEY = '6Lf5DwcUAAAAAE8LHG1acRK7X8h7HZ49CdWd5_XU';
@@ -68,8 +69,8 @@ app.post('/contactUs', function (req, res, next) {
 			else {
 				/*Success fully passed Captcha*/
 				pg.connect(process.env.DATABASE_URL, function (err, client) {
+					if (err) throw err;
 					console.log('Connected to postgres! Getting schemas...');
-					pg.defaults.ssl = true;
 					client.query('INSERT into users values ("req.body.serialcode","req.body.company","req.body.firstname","req.body.lastname","req.body.phone","req.body.email","req.body.comments","1999-01-08 04:05:06"')
 						, function (err, result) {
 							if (err) {
