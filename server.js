@@ -85,8 +85,8 @@ app.post('/contactUs', function (req, res, next) {
 					from: 'Swepco Lubes<swepcolubes@gmail.com>'
 					, to: 'arjungalgali@gmail.com, swepcoindia@gmail.com,saisuniltata@gmail.com'
 					, subject: 'Swepco lubes'
-					, text: 'Company ' + req.body.company + ' firstname ' + req.body.firstname + ' lastname ' + req.body.lastname + ' phone ' + req.body.phone + ' email ' + req.body.email + ' comments ' + req.body.comments + ' uniqueid ' + uniqueid
-					, html: '<p>' + 'Company ' + req.body.company + ' firstname ' + req.body.firstname + ' lastname ' + req.body.lastname + ' phone ' + req.body.phone + ' email ' + req.body.email + ' comments ' + req.body.comments + ' uniqueid ' + uniqueid + '</p>'
+					, text: 'Company: ' + req.body.company + ' firstname: ' + req.body.firstname + ' lastname: ' + req.body.lastname + ' phone: ' + req.body.phone + ' email: ' + req.body.email + ' comments: ' + req.body.comments + ' uniqueid: ' + uniqueid
+					, html: '<p>' + 'Company: ' + req.body.company + ' firstname: ' + req.body.firstname + ' lastname: ' + req.body.lastname + ' phone: ' + req.body.phone + ' email: ' + req.body.email + ' comments: ' + req.body.comments + ' uniqueid: ' + uniqueid + '</p>'
 				};
 				transporter.sendMail(mailOptions, function (error, info) {
 					if (error) {
