@@ -23,13 +23,17 @@ var xoauth2gen = generator.createXOAuth2Generator({
 	, refreshToken: authDetails.refreshToken
 	, accessToken: authDetails.accessToken
 });
-xoauth2gen.getToken(function (err, token, accessToken) {
+xoauth2gen.getToken(function (err, token, accessToken, timeout) {
 	if (err) {
 		return console.log(err);
 	}
 	if (token.constructor === Array) {
 		console.log('token is a array');
 	}
+	else {
+		console.log('token not an array');
+	}
+	console.log('TTL is ' + timeout);
 	console.log("Authorization: Bearer " + accessToken);
 });
 app.use(bodyParser.json());
