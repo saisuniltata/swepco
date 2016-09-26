@@ -26,29 +26,49 @@
 		<!-- Fixed navbar -->
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon icon-shield" style="font-size:30px; color:#3498db;"></span> </button> <a class="navbar-brand hidden-xs hidden-sm" ui-sref="home"><span class="icon icon-shield" style="font-size:18px; color:#3498db;"></span></a> </div>
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						<li><a ui-sref="home">Home</a></li>
-						<li class="dropdown" uib-dropdown is-open="status.isopen" ng-mouseover="status.isopen = true" ng-mouseleave="status.isopen = false"> <a ui-sref="about-swepco" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Swepco <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a ui-sref="1933-our-heritage">Since 1933</a></li>
-								<li><a ui-sref="iso-certification">ISO certification</a></li>
-								<li><a ui-sref="quality-ingredients">Quality Ingredients</a></li>
-								<li><a ui-sref="energy-star-partner">Energy Star Partner</a></li>
-								<li><a ui-sref="environmental-stewards">Environmental Stewards</a></li>
-								<li><a ui-sref="industry-associations">Industry Associations</a></li>
-								<li><a ui-sref="reach-compliant">Reach Compliant</a></li>
-							</ul>
-						</li>
-						<li> <a ui-sref="lubricants"> Lubricants</a></li>
-						<li> <a ui-sref="contactUs"> Contact</a></li>
-					</ul>
+				<!-- Header begins-->
+				<div id="header">
+					<div id="header-inner" class="clearfix">
+						<div id="logo-title">
+							<div id="site-logo">
+								<a href="/" title="Home" rel="home"><img src="http://www.swepcolube.com/sites/default/files/swepcologo_0.png" alt="Home"></a>
+							</div>
+							<div id="site-title">
+								<h1 class="cufon"><a href="/" title="Home" rel="home">Authorized partners of Southwestern Petroleum Corporation</a></h1> Lubrication Solutions <em>... to keep it running</em> <span class="reg">®</span> </div>
+						</div>
+						<!-- /#logo-title -->
+						<div id="header-right">
+							<div class="region region-header-right"> </div>
+						</div>
+					</div>
 				</div>
-				<!--/.nav-collapse -->
 			</div>
 		</div>
+		<!-- /Header ends -->
+	</div>
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon icon-shield" style="font-size:30px; color:#3498db;"></span> </button> <a class="navbar-brand hidden-xs hidden-sm" ui-sref="home"><span class="icon icon-shield" style="font-size:18px; color:#3498db;"></span></a> </div>
+	<div class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">
+			<li><a ui-sref="home">Home</a></li>
+			<li class="dropdown" uib-dropdown is-open="status.isopen" ng-mouseover="status.isopen = true" ng-mouseleave="status.isopen = false"> <a ui-sref="about-swepco" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Swepco <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a ui-sref="1933-our-heritage">Since 1933</a></li>
+					<li><a ui-sref="iso-certification">ISO certification</a></li>
+					<li><a ui-sref="quality-ingredients">Quality Ingredients</a></li>
+					<li><a ui-sref="energy-star-partner">Energy Star Partner</a></li>
+					<li><a ui-sref="environmental-stewards">Environmental Stewards</a></li>
+					<li><a ui-sref="industry-associations">Industry Associations</a></li>
+					<li><a ui-sref="reach-compliant">Reach Compliant</a></li>
+				</ul>
+			</li>
+			<li> <a ui-sref="lubricants"> Lubricants</a></li>
+			<li> <a ui-sref="contactUs"> Contact</a></li>
+		</ul>
+	</div>
+	<!--/.nav-collapse -->
+	</div>
+	</div>
 	</div>
 	<div class="container">
 		<div ui-view></div>
