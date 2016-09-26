@@ -14,7 +14,7 @@ var google = {
 	, clientId: '422050930905-rl6hsbvvlv00i4c9qlgenme1plva3j6k.apps.googleusercontent.com'
 	, clientsecret: '91HaCadkAhH-yrdt6AHi8DvS'
 	, refreshToken: '1/rUEOYGjRIONYHCOSyyC-gGK4N-GSN4LePjRuFNfdKwY'
-	, accessToken: 'ya29.Ci9qA-OOv7dCyjtDfz_6F_i-P6korOMFz2qd5szcwQ0Z6B2R3LtbqITtaBVh6qW7xA'
+	, accessToken: 'ya29.Ci9qA7dSLXOCgc3fqK8WBfUx556v1UmCEFIwv7wAADOAiLOYZs7J-JIH4NLezU91zA'
 }
 var xoauth2gen = generator.createXOAuth2Generator({
 	user: google.user
@@ -23,12 +23,15 @@ var xoauth2gen = generator.createXOAuth2Generator({
 	, refreshToken: google.refreshToken
 	, accessToken: google.accessToken
 });
-xoauth2gen.getToken(function (err, token, accessToken) {
+/*xoauth2gen.getToken(function (err, token, accessToken) {
 	if (err) {
 		return console.log(err);
 	}
 	console.log('The token is' + token);
 	console.log("Authorization: Bearer " + accessToken);
+});*/
+generator.on('token', function (token) {
+	console.log('New token for %s: %s', token.user, token.accessToken);
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -110,6 +113,7 @@ app.post('/contactUs', function (req, res, next) {
 						console.log('Message sent:' + info.response);
 					}
 				});
+				transporter.close();
 			}
 		});
 	}
@@ -118,6 +122,7 @@ app.post('/contactUs', function (req, res, next) {
 			"responseCode": 1
 			, "responseDesc": "Failed captcha verification"
 		});
+		res.end();
 	}
 });
 console.log('request body ends');
