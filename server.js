@@ -78,8 +78,8 @@ app.post('/contactUs', function (req, res, next) {
 					from: 'Swepco Lubes<swepcolubes@gmail.com>'
 					, to: req.body.email
 					, subject: 'Swepco lubes'
-					, text: 'Hi ' + req.body.firstname + ' ' + req.body.lastname ',' + 'We have receive your request. Your confimation code is' + uniqueid + 'We will get back to you shortly.'
-					, html: '<p>' + 'Hi ' + req.body.firstname + ' ' + req.body.lastname ',' + 'We have receive your request. Your confimation code is' + uniqueid + 'We will get back to you shortly.' + '</p>'
+					, text: 'Hi ' + req.body.firstname + ' ' + req.body.lastname + ',' + 'We have receive your request. Your confimation code is' + uniqueid + 'We will get back to you shortly.'
+					, html: '<p>' + 'Hi ' + req.body.firstname + ' ' + req.body.lastname + ',' + 'We have receive your request. Your confimation code is' + uniqueid + 'We will get back to you shortly.' + '</p>'
 				};
 				var mailOptions1 = {
 					from: 'Swepco Lubes<swepcolubes@gmail.com>'
