@@ -68,6 +68,7 @@ app.post('/contactUs', function (req, res, next) {
 			else {
 				/*Success fully passed Captcha*/
 				pg.connect(process.env.DATABASE_URL, function (err, client) {
+					console.log('Connected to postgres! Getting schemas...');
 					pg.defaults.ssl = true;
 					client.query('INSERT into users (req.body.serialcode,req.body.company,req.body.firstname,req.body.lastname,req.body.phone,req.body.email,req.body.comments,Date.now())', function (err, result) {
 						if (err) {
@@ -79,8 +80,6 @@ app.post('/contactUs', function (req, res, next) {
 					});
 					client.end();
 				});
-				if (err) throw err;
-				console.log('Connected to postgres! Getting schemas...');
 				var transporter = nodemailer.createTransport({
 					service: 'gmail'
 					, auth: {
