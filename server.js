@@ -27,7 +27,9 @@ xoauth2gen.getToken(function (err, token, accessToken) {
 	if (err) {
 		return console.log(err);
 	}
-	console.log('The token is' + token.timeout);
+	if (token.constructor === Array) {
+		console.log('token is a array');
+	}
 	console.log("Authorization: Bearer " + accessToken);
 });
 app.use(bodyParser.json());
