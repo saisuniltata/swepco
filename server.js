@@ -49,94 +49,88 @@ app.get('/*', function (req, res, next) {
 	});
 });
 app.post('/contactUs', function (req, res, next) {
-	var uniqueid = shortid.generate();
-	console.log('First' + req.body);
-	var requestQuery = req.body.myRecaptchaResponse;
-	if (requestQuery != undefined && requestQuery != '' && requestQuery != null) {
-		console.log('inside requestQuery');
-		var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body['myRecaptchaResponse'] + "&remoteip=" + req.connection.remoteAddress;
-		// Hitting GET request to the URL, Google will respond with success or error scenario.
-		request(verificationUrl, function (error, response, body) {
-			console.log(req);
-			body = JSON.parse(body);
-			// Success will be true or false depending upon captcha validation.
-			if (body.success !== undefined && !body.success) {
-				return res.json({
-					"responseCode": 1
-					, "responseDesc": "Failed captcha verification"
-				});
-			}
-			else {
-				/*Success fully passed Captcha*/
-				pg.connect(process.env.DATABASE_URL, function (err, client) {
-					if (err) console.log('Error occured in connecting' + err);
-					console.log('Connected to postgres! Getting schemas...');
-					client.query('INSERT into users values ("req.body.serialcode","req.body.company","req.body.firstname","req.body.lastname","req.body.phone","req.body.email","req.body.comments","1999-01-08 04:05:06"')
-						, function (err, result) {
-							if (err) {
-								console.log('Error with inserting rows in database' + err);
-							}
-							else {
-								console.log('Rows inserted');
-								done();
-							}
+			var uniqueid = shortid.generate();
+			console.log('First' + req.body);
+			var requestQuery = req.body.myRecaptchaResponse;
+			if (requestQuery != undefined && requestQuery != '' && requestQuery != null) {
+				console.log('inside requestQuery');
+				var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body['myRecaptchaResponse'] + "&remoteip=" + req.connection.remoteAddress;
+				// Hitting GET request to the URL, Google will respond with success or error scenario.
+				request(verificationUrl, function (error, response, body) {
+						console.log(req);
+						body = JSON.parse(body);
+						// Success will be true or false depending upon captcha validation.
+						if (body.success !== undefined && !body.success) {
+							return res.json({
+								"responseCode": 1
+								, "responseDesc": "Failed captcha verification"
+							});
 						}
-				});
-				var transporter = nodemailer.createTransport({
-					service: 'gmail'
-					, auth: {
-						xoauth2: xoauth2gen
-					}
-				});
-				var mailOptions = {
-					from: 'Swepco Lubes<swepcolubes@gmail.com>'
-					, to: req.body.email
-					, subject: 'Swepco lubes'
-					, text: 'Hi ' + req.body.firstname + ' ' + req.body.lastname + ',' + 'We have receive your request. Your confimation code is ' + uniqueid + '. We will get back to you shortly.'
-					, html: '<p>' + 'Hi ' + req.body.firstname + ' ' + req.body.lastname + ',' + 'We have receive your request. Your confimation code is ' + uniqueid + '. We will get back to you shortly.' + '</p>'
-				};
-				var mailOptions1 = {
-					from: 'Swepco Lubes<swepcolubes@gmail.com>'
-					, to: 'swepcoindia@gmail.com'
-					, subject: 'Swepco lubes'
-					, text: 'Company: ' + req.body.company + ' firstname: ' + req.body.firstname + ' lastname: ' + req.body.lastname + ' phone: ' + req.body.phone + ' email: ' + req.body.email + ' comments: ' + req.body.comments + ' uniqueid: ' + uniqueid
-					, html: '<p>' + 'Company: ' + req.body.company + ' firstname: ' + req.body.firstname + ' lastname: ' + req.body.lastname + ' phone: ' + req.body.phone + ' email: ' + req.body.email + ' comments: ' + req.body.comments + ' uniqueid: ' + uniqueid + '</p>'
-				};
-				transporter.sendMail(mailOptions, function (error, info) {
-					if (error) {
-						console.log('Error occured in sending mail to user' + error);
-						res.redirect('/');
-					}
-					else {
-						console.log('Message sent:' + info.response);
-						res.json({
-							"responseCode": 0
-							, "responseDesc": "Success"
+						else {
+							/*Success fully passed Captcha*/
+							pg.connect(process.env.DATABASE_URL, function (err, client) {
+									if (err) console.log('Error occured in connecting' + err);
+									console.log('Connected to postgres! Getting schemas...');
+									client.query('INSERT into users values ($1,$2,$3,$4,$5,$6,$7,$8)', [req.body.serialcode, req.body.company, req.body.firstname, req.body.lastname, req.body.phone, req.body.email, req.body.comments, Date.now()], function (err, result) {
+											if (err) {
+												console.log('Error with inserting rows in database' + err);
+											}
+											else {
+												console.log('Rows inserted');
+												done();
+											}
+										}
+									});
+								var transporter = nodemailer.createTransport({
+									service: 'gmail'
+									, auth: {
+										xoauth2: xoauth2gen
+									}
+								});
+								var mailOptions = {
+									from: 'Swepco Lubes<swepcolubes@gmail.com>'
+									, to: req.body.email
+									, subject: 'Swepco lubes'
+									, text: 'Hi ' + req.body.firstname + ' ' + req.body.lastname + ',' + 'We have receive your request. Your confimation code is ' + uniqueid + '. We will get back to you shortly.'
+									, html: '<p>' + 'Hi ' + req.body.firstname + ' ' + req.body.lastname + ',' + 'We have receive your request. Your confimation code is ' + uniqueid + '. We will get back to you shortly.' + '</p>'
+								};
+								var mailOptions1 = {
+									from: 'Swepco Lubes<swepcolubes@gmail.com>'
+									, to: 'swepcoindia@gmail.com'
+									, subject: 'Swepco lubes'
+									, text: 'Company: ' + req.body.company + ' firstname: ' + req.body.firstname + ' lastname: ' + req.body.lastname + ' phone: ' + req.body.phone + ' email: ' + req.body.email + ' comments: ' + req.body.comments + ' uniqueid: ' + uniqueid
+									, html: '<p>' + 'Company: ' + req.body.company + ' firstname: ' + req.body.firstname + ' lastname: ' + req.body.lastname + ' phone: ' + req.body.phone + ' email: ' + req.body.email + ' comments: ' + req.body.comments + ' uniqueid: ' + uniqueid + '</p>'
+								}; transporter.sendMail(mailOptions, function (error, info) {
+									if (error) {
+										console.log('Error occured in sending mail to user' + error);
+										res.redirect('/');
+									}
+									else {
+										console.log('Message sent:' + info.response);
+										res.json({
+											"responseCode": 0
+											, "responseDesc": "Success"
+										});
+										res.end();
+									}
+								}); transporter.sendMail(mailOptions1, function (error, info) {
+									if (error) {
+										console.log('Error occured in sending mail to arjun and swepco india' + error);
+									}
+									else {
+										console.log('Email sent:' + info.response);
+									}
+								}); transporter.close();
+							}
 						});
-						res.end();
-					}
-				});
-				transporter.sendMail(mailOptions1, function (error, info) {
-					if (error) {
-						console.log('Error occured in sending mail to arjun and swepco india' + error);
-					}
-					else {
-						console.log('Email sent:' + info.response);
-					}
-				});
-				transporter.close();
-			}
-		});
-	}
-	else {
-		res.send({
-			"responseCode": 1
-			, "responseDesc": "Failed captcha verification"
-		});
-		res.end();
-	}
-});
-console.log('request body ends');
-//Node Mailer starts
-app.listen(port);
-console.log("Swepco Server Listening on port 3000");
+				}
+				else {
+					res.send({
+						"responseCode": 1
+						, "responseDesc": "Failed captcha verification"
+					});
+					res.end();
+				}
+			}); console.log('request body ends');
+		//Node Mailer starts
+		app.listen(port); console.log("Swepco Server Listening on port 3000");
