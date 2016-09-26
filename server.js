@@ -9,7 +9,7 @@ var generator = require('xoauth2');
 var port = process.env.PORT || 3000;
 var PUBLIC_KEY = '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
 	, PRIVATE_KEY = '6Lf5DwcUAAAAAE8LHG1acRK7X8h7HZ49CdWd5_XU';
-var google = {
+var authDetails = {
 	user: 'swepcoindia@gmail.com'
 	, clientId: '422050930905-rl6hsbvvlv00i4c9qlgenme1plva3j6k.apps.googleusercontent.com'
 	, clientsecret: '91HaCadkAhH-yrdt6AHi8DvS'
@@ -17,21 +17,18 @@ var google = {
 	, accessToken: 'ya29.Ci9qA7dSLXOCgc3fqK8WBfUx556v1UmCEFIwv7wAADOAiLOYZs7J-JIH4NLezU91zA'
 }
 var xoauth2gen = generator.createXOAuth2Generator({
-	user: google.user
-	, clientId: google.clientId
-	, clientSecret: google.clientsecret
-	, refreshToken: google.refreshToken
-	, accessToken: google.accessToken
+	user: authDetails.user
+	, clientId: authDetails.clientId
+	, clientSecret: authDetails.clientsecret
+	, refreshToken: authDetails.refreshToken
+	, accessToken: authDetails.accessToken
 });
-/*xoauth2gen.getToken(function (err, token, accessToken) {
+xoauth2gen.getToken(function (err, token, accessToken) {
 	if (err) {
 		return console.log(err);
 	}
 	console.log('The token is' + token);
 	console.log("Authorization: Bearer " + accessToken);
-});*/
-xoauth2gen.on('token', function (token) {
-	console.log('New token for %s: %s', token.user, token.accessToken);
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
