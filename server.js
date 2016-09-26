@@ -8,6 +8,8 @@ var request = require('request');
 var generator = require('xoauth2');
 var shortid = require('shortid');
 var port = process.env.PORT || 3000;
+var pg = require('pg');
+var client = new pg.Client();
 var PUBLIC_KEY = '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
 	, PRIVATE_KEY = '6Lf5DwcUAAAAAE8LHG1acRK7X8h7HZ49CdWd5_XU';
 var authDetails = {
@@ -29,7 +31,6 @@ xoauth2gen.getToken(function (err, token, accessToken, timeout) {
 		console.log('Error with generating token' + err);
 	}
 });
-pg.defaults.ssl = true;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true
@@ -67,6 +68,7 @@ app.post('/contactUs', function (req, res, next) {
 			else {
 				/*Success fully passed Captcha*/
 				pg.connect(process.env.DATABASE_URL, function (err, client) {
+					pg.defaults.ssl = true;
 					client.query('INSERT into users (req.body.serialcode,req.body.company,req.body.firstname,req.body.lastname,req.body.phone,req.body.email,req.body.comments,Date.now())', function (err, result) {
 						if (err) {
 							console.log('Error with inserting rows in database' + err);
