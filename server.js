@@ -56,31 +56,31 @@ app.post('/contactUs', function (req, res, next) {
 		var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body['myRecaptchaResponse'] + "&remoteip=" + req.connection.remoteAddress;
 		// Hitting GET request to the URL, Google will respond with success or error scenario.
 		request(verificationUrl, function (error, response, body) {
-				console.log(req);
-				body = JSON.parse(body);
-				// Success will be true or false depending upon captcha validation.
-				if (body.success !== undefined && !body.success) {
-					return res.json({
-						"responseCode": 1
-						, "responseDesc": "Failed captcha verification"
-					});
-				}
-				else {
-					/*Success fully passed Captcha*/
-					pg.connect(process.env.DATABASE_URL, function (err, client) {
-							console.log('Connected to postgres! Getting schemas...');
-							pg.defaults.ssl = true;
-							client.query('INSERT into users ("req.body.serialcode","req.body.company","req.body.firstname","req.body.lastname","req.body.phone","req.body.email","req.body.comments",1999-01-08 04:05:06')
-								, function (err, result) {
-									if (err) {
-										console.log('Error with inserting rows in database' + err);
-									}
-									else {
-										console.log('Rows inserted');
-										done();
-									}
-								});
-					});
+			console.log(req);
+			body = JSON.parse(body);
+			// Success will be true or false depending upon captcha validation.
+			if (body.success !== undefined && !body.success) {
+				return res.json({
+					"responseCode": 1
+					, "responseDesc": "Failed captcha verification"
+				});
+			}
+			else {
+				/*Success fully passed Captcha*/
+				pg.connect(process.env.DATABASE_URL, function (err, client) {
+					console.log('Connected to postgres! Getting schemas...');
+					pg.defaults.ssl = true;
+					client.query('INSERT into users ("req.body.serialcode","req.body.company","req.body.firstname","req.body.lastname","req.body.phone","req.body.email","req.body.comments",1999-01-08 04:05:06')
+						, function (err, result) {
+							if (err) {
+								console.log('Error with inserting rows in database' + err);
+							}
+							else {
+								console.log('Rows inserted');
+								done();
+							}
+						}
+				});
 				var transporter = nodemailer.createTransport({
 					service: 'gmail'
 					, auth: {
@@ -126,14 +126,14 @@ app.post('/contactUs', function (req, res, next) {
 				transporter.close();
 			}
 		});
-}
-else {
-	res.send({
-		"responseCode": 1
-		, "responseDesc": "Failed captcha verification"
-	});
-	res.end();
-}
+	}
+	else {
+		res.send({
+			"responseCode": 1
+			, "responseDesc": "Failed captcha verification"
+		});
+		res.end();
+	}
 });
 console.log('request body ends');
 //Node Mailer starts
