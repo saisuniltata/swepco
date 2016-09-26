@@ -23,13 +23,13 @@ var xoauth2gen = generator.createXOAuth2Generator({
 	, refreshToken: google.refreshToken
 	, accessToken: google.accessToken
 });
-/*xoauth2gen.getToken(function (err, token, accessToken, timeout) {
+xoauth2gen.getToken(function (err, token, accessToken, timeout) {
 	if (err) {
 		return console.log(err);
 	}
 	console.log(timeout);
 	console.log("Authorization: Bearer " + accessToken);
-});*/
+});
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true
