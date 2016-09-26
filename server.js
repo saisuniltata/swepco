@@ -6,6 +6,7 @@ var path = require('path');
 var nodemailer = require('nodemailer');
 var request = require('request');
 var generator = require('xoauth2');
+var shortid = require('shortid');
 var port = process.env.PORT || 3000;
 var PUBLIC_KEY = '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
 	, PRIVATE_KEY = '6Lf5DwcUAAAAAE8LHG1acRK7X8h7HZ49CdWd5_XU';
@@ -14,7 +15,7 @@ var authDetails = {
 	, clientId: '422050930905-rl6hsbvvlv00i4c9qlgenme1plva3j6k.apps.googleusercontent.com'
 	, clientsecret: '91HaCadkAhH-yrdt6AHi8DvS'
 	, refreshToken: '1/rUEOYGjRIONYHCOSyyC-gGK4N-GSN4LePjRuFNfdKwY'
-	, accessToken: 'ya29.Ci9qA7dSLXOCgc3fqK8WBfUx556v1UmCEFIwv7wAADOAiLOYZs7J-JIH4NLezU91zA'
+	, accessToken: 'ya29.Ci9qA3QN2d-uHaYu2Qh1XsdNrTGAhzPZgU8FgjnWR-N6c6lm-vpO74P75y2WGMeudw'
 }
 var xoauth2gen = generator.createXOAuth2Generator({
 	user: authDetails.user
@@ -46,6 +47,7 @@ app.get('/*', function (req, res, next) {
 	});
 });
 app.post('/contactUs', function (req, res, next) {
+	var uniqueid = shortid.generate();
 	console.log('inside app post');
 	console.log('First' + req.body);
 	var requestQuery = req.body.myRecaptchaResponse;
@@ -76,15 +78,15 @@ app.post('/contactUs', function (req, res, next) {
 					from: 'Swepco Lubes<swepcolubes@gmail.com>'
 					, to: req.body.email
 					, subject: 'Swepco lubes'
-					, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
-					, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + '</p>'
+					, text: 'Hi ' + req.body.firstname + ' ' + req.body.lastname ',' + 'We have receive your request. Your confimation code is' + uniqueid + 'We will get back to you shortly.'
+					, html: '<p>' + 'Hi ' + req.body.firstname + ' ' + req.body.lastname ',' + 'We have receive your request. Your confimation code is' + uniqueid + 'We will get back to you shortly.' + '</p>'
 				};
 				var mailOptions1 = {
 					from: 'Swepco Lubes<swepcolubes@gmail.com>'
 					, to: 'arjungalgali@gmail.com, swepcoindia@gmail.com,saisuniltata@gmail.com'
 					, subject: 'Swepco lubes'
-					, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments
-					, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + '</p>'
+					, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + uniqueid
+					, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + uniqueid + '</p>'
 				};
 				transporter.sendMail(mailOptions, function (error, info) {
 					if (error) {
