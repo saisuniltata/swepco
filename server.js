@@ -78,15 +78,15 @@ app.post('/contactUs', function (req, res, next) {
 					from: 'Swepco Lubes<swepcolubes@gmail.com>'
 					, to: req.body.email
 					, subject: 'Swepco lubes'
-					, text: 'Hi ' + req.body.firstname + ' ' + req.body.lastname + ',' + 'We have receive your request. Your confimation code is' + uniqueid + 'We will get back to you shortly.'
-					, html: '<p>' + 'Hi ' + req.body.firstname + ' ' + req.body.lastname + ',' + 'We have receive your request. Your confimation code is' + uniqueid + 'We will get back to you shortly.' + '</p>'
+					, text: 'Hi ' + req.body.firstname + ' ' + req.body.lastname + ',' + 'We have receive your request. Your confimation code is ' + uniqueid + '. We will get back to you shortly.'
+					, html: '<p>' + 'Hi ' + req.body.firstname + ' ' + req.body.lastname + ',' + 'We have receive your request. Your confimation code is ' + uniqueid + '. We will get back to you shortly.' + '</p>'
 				};
 				var mailOptions1 = {
 					from: 'Swepco Lubes<swepcolubes@gmail.com>'
 					, to: 'arjungalgali@gmail.com, swepcoindia@gmail.com,saisuniltata@gmail.com'
 					, subject: 'Swepco lubes'
-					, text: req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + uniqueid
-					, html: '<p>' + req.body.company + req.body.firstname + req.body.lastname + req.body.phone + req.body.email + req.body.comments + uniqueid + '</p>'
+					, text: 'Company ' + req.body.company + ' firstname ' + req.body.firstname + ' lastname ' + req.body.lastname + ' phone ' + req.body.phone + ' email ' + req.body.email + ' comments ' + req.body.comments + ' uniqueid ' + uniqueid
+					, html: '<p>' + 'Company ' + req.body.company + ' firstname ' + req.body.firstname + ' lastname ' + req.body.lastname + ' phone ' + req.body.phone + ' email ' + req.body.email + ' comments ' + req.body.comments + ' uniqueid ' + uniqueid + '</p>'
 				};
 				transporter.sendMail(mailOptions, function (error, info) {
 					if (error) {
