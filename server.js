@@ -69,7 +69,7 @@ app.post('/contactUs', function (req, res, next) {
 			else {
 				/*Success fully passed Captcha*/
 				pg.connect(process.env.DATABASE_URL, function (err, client) {
-					if (err) throw err;
+					if (err) console.log('Error occured in connecting' + err);
 					console.log('Connected to postgres! Getting schemas...');
 					client.query('INSERT into users values ("req.body.serialcode","req.body.company","req.body.firstname","req.body.lastname","req.body.phone","req.body.email","req.body.comments","1999-01-08 04:05:06"')
 						, function (err, result) {
