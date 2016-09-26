@@ -18,7 +18,7 @@ var authDetails = {
 	, clientId: '422050930905-rl6hsbvvlv00i4c9qlgenme1plva3j6k.apps.googleusercontent.com'
 	, clientsecret: '91HaCadkAhH-yrdt6AHi8DvS'
 	, refreshToken: '1/rUEOYGjRIONYHCOSyyC-gGK4N-GSN4LePjRuFNfdKwY'
-	, accessToken: 'ya29.Ci9qA3QN2d-uHaYu2Qh1XsdNrTGAhzPZgU8FgjnWR-N6c6lm-vpO74P75y2WGMeudw'
+	, accessToken: 'ya29.CjBqAx5mSioVaa-eh4JkxJdlmBfyHYbUoAFblkVzxGn26X3tR7YEJmYcpzi7GXb0gNU'
 }
 var xoauth2gen = generator.createXOAuth2Generator({
 	user: authDetails.user
@@ -86,7 +86,7 @@ app.post('/contactUs', function (req, res, next) {
 					}
 					formattedDate = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
 					console.log('The formatted date is' + formattedDate);
-					client.query('INSERT into users values ($1,$2,$3,$4,$5,$6,$7,$8)', [req.body.serialcode, req.body.company, req.body.firstname, req.body.lastname, req.body.phone, req.body.email, req.body.comments, formattedDate], function (err, result) {
+					client.query('INSERT into users values ($1,$2,$3,$4,$5,$6,$7,$8)', [uniqueid, req.body.company, req.body.firstname, req.body.lastname, req.body.phone, req.body.email, req.body.comments, formattedDate], function (err, result) {
 						if (err) {
 							console.log('Error with inserting rows in database' + err);
 						}
