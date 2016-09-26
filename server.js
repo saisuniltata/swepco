@@ -56,7 +56,6 @@ app.post('/contactUs', function (req, res, next) {
 		var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + PRIVATE_KEY + "&response=" + req.body['myRecaptchaResponse'] + "&remoteip=" + req.connection.remoteAddress;
 		// Hitting GET request to the URL, Google will respond with success or error scenario.
 		request(verificationUrl, function (error, response, body) {
-			console.log(req);
 			body = JSON.parse(body);
 			// Success will be true or false depending upon captcha validation.
 			if (body.success !== undefined && !body.success) {
@@ -77,20 +76,17 @@ app.post('/contactUs', function (req, res, next) {
 					var day = date.getUTCDate();
 					month = ("0" + (month + 1)).slice(-2);
 					year = year.toString().substr(2, 2);
-					var formattedDate = day + ":" + month + ":" + year + ":";
-					var hours = date.getHours()
-					var minutes = date.getMinutes()
-					var seconds = date.getSeconds()
+					var hours = date.getHours();
+					var minutes = date.getMinutes();
+					var seconds = date.getSeconds();
 					if (minutes < 10) {
 						minutes = "0" + minutes
 					}
 					if (seconds < 10) {
 						seconds = "0" + seconds
 					}
-					var formattedTime = formattedTime + hours + ":" + minutes + ":" + seconds + " ";
-					formattedDate = formattedDate + formattedTime;
-					console.log('The formatted date is' + formattedDate)
-					client.query('INSERT into users values ($1,$2,$3,$4,$5,$6,$7,$8'), [req.body.serialcode, req.body.company, req.body.firstname, req.body.lastname, req.body.phone, req.body.email, req.body.comments, formattedDate]
+					formattedDate = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+					console.log('The formatted date is' + formattedDate) client.query('INSERT into users values ($1,$2,$3,$4,$5,$6,$7,$8'), [req.body.serialcode, req.body.company, req.body.firstname, req.body.lastname, req.body.phone, req.body.email, req.body.comments, formattedDate]
 						, function (err, result) {
 							if (err) {
 								console.log('Error with inserting rows in database' + err);
