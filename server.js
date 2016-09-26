@@ -50,7 +50,6 @@ app.get('/*', function (req, res, next) {
 });
 app.post('/contactUs', function (req, res, next) {
 	var uniqueid = shortid.generate();
-	console.log('First' + req.body);
 	var requestQuery = req.body.myRecaptchaResponse;
 	if (requestQuery != undefined && requestQuery != '' && requestQuery != null) {
 		console.log('inside requestQuery');
