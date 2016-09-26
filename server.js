@@ -66,7 +66,7 @@ app.post('/contactUs', function (req, res, next) {
 			}
 			else {
 				/*Success fully passed Captcha*/
-				pg.connect(process.env.DATABASE_URL, function (err, client) {
+				pg.connect(process.env.DATABASE_URL, function (err, client, done) {
 					if (err) console.log('Error occured in connecting' + err);
 					console.log(Date.now());
 					console.log('Connected to postgres! Getting schemas...');
