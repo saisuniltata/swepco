@@ -85,7 +85,7 @@ app.post('/contactUs', function (req, res, next) {
 					if (seconds < 10) {
 						seconds = "0" + seconds
 					}
-					formattedDate = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+					formattedDate = day + "-" + month + "-" + year + " " + hours + ":" + minutes + ":" + seconds;
 					console.log('The formatted date is' + formattedDate);
 					client.query('INSERT into users values ($1,$2,$3,$4,$5,$6,$7,$8)', [req.body.serialcode, req.body.company, req.body.firstname, req.body.lastname, req.body.phone, req.body.email, req.body.comments, formattedDate], function (err, result) {
 						if (err) {
