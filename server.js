@@ -70,7 +70,7 @@ app.post('/contactUs', function (req, res, next) {
 				pg.connect(process.env.DATABASE_URL, function (err, client) {
 					console.log('Connected to postgres! Getting schemas...');
 					pg.defaults.ssl = true;
-					client.query('INSERT into users ("req.body.serialcode","req.body.company","req.body.firstname","req.body.lastname","req.body.phone","req.body.email","req.body.comments",1999-01-08 04:05:06')
+					client.query('INSERT into users values ("req.body.serialcode","req.body.company","req.body.firstname","req.body.lastname","req.body.phone","req.body.email","req.body.comments","1999-01-08 04:05:06"')
 						, function (err, result) {
 							if (err) {
 								console.log('Error with inserting rows in database' + err);
