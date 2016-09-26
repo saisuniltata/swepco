@@ -11,10 +11,10 @@ var PUBLIC_KEY = '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
 	, PRIVATE_KEY = '6Lf5DwcUAAAAAE8LHG1acRK7X8h7HZ49CdWd5_XU';
 var google = {
 	user: 'swepcoindia@gmail.com'
-	, clientId: '46978714862-bihoa2a35ksi077qdh4e0kghb7rrog82.apps.googleusercontent.com'
-	, clientsecret: '0lEN0cj3nhfy5qDLZloIh4Wm'
-	, refreshToken: '1/aVnARImzk5bNjPglg1C_LymIIkJoiKkTkMopAOw4-lI'
-	, accessToken: 'ya29.Ci9pAwTfiHs_usiEIPLqpWKmqDXLsqFHibhNGfJ9BIUDGLj_80t5R6f5qr4JKYM2AQ'
+	, clientId: '422050930905-rl6hsbvvlv00i4c9qlgenme1plva3j6k.apps.googleusercontent.com'
+	, clientsecret: '91HaCadkAhH-yrdt6AHi8DvS'
+	, refreshToken: '1/rUEOYGjRIONYHCOSyyC-gGK4N-GSN4LePjRuFNfdKwY'
+	, accessToken: 'ya29.Ci9qA-OOv7dCyjtDfz_6F_i-P6korOMFz2qd5szcwQ0Z6B2R3LtbqITtaBVh6qW7xA'
 }
 var xoauth2gen = generator.createXOAuth2Generator({
 	user: google.user
