@@ -19,7 +19,7 @@
 	, "bugs": {
 		"url": "https://github.com/saisuniltata/swepco/issues"
 	}
-	, "homepage": "https://github.com/saisuniltata/swepco#readme"
+	, "homepage": "https://swepco.herokuapp.com"
 	, "dependencies": {
 		"express": "4.14.0"
 		, "body-parser": "1.15.2"
@@ -29,5 +29,6 @@
 		, "recaptcha": "1.2.1"
 		, "request": "2.75.0"
 		, "xoauth2": "1.2.0"
+		, "shortid": "2.2.6"
 	}
 }
