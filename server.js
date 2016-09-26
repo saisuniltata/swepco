@@ -86,16 +86,16 @@ app.post('/contactUs', function (req, res, next) {
 						seconds = "0" + seconds
 					}
 					formattedDate = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
-					console.log('The formatted date is' + formattedDate) client.query('INSERT into users values ($1,$2,$3,$4,$5,$6,$7,$8'), [req.body.serialcode, req.body.company, req.body.firstname, req.body.lastname, req.body.phone, req.body.email, req.body.comments, formattedDate]
-						, function (err, result) {
-							if (err) {
-								console.log('Error with inserting rows in database' + err);
-							}
-							else {
-								console.log('Rows inserted');
-								done();
-							}
+					console.log('The formatted date is' + formattedDate);
+					client.query('INSERT into users values ($1,$2,$3,$4,$5,$6,$7,$8)', [req.body.serialcode, req.body.company, req.body.firstname, req.body.lastname, req.body.phone, req.body.email, req.body.comments, formattedDate], function (err, result) {
+						if (err) {
+							console.log('Error with inserting rows in database' + err);
 						}
+						else {
+							console.log('Rows inserted');
+							done();
+						}
+					});
 				});
 				var transporter = nodemailer.createTransport({
 					service: 'gmail'
