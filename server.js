@@ -30,7 +30,7 @@ var xoauth2gen = generator.createXOAuth2Generator({
 	console.log('The token is' + token);
 	console.log("Authorization: Bearer " + accessToken);
 });*/
-generator.on('token', function (token) {
+xoauth2gen.on('token', function (token) {
 	console.log('New token for %s: %s', token.user, token.accessToken);
 });
 app.use(bodyParser.json());
