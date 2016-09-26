@@ -78,7 +78,7 @@ app.post('/contactUs', function (req, res, next) {
 					var day = date.getUTCDate();
 					month = ("0" + (month + 1)).slice(-2);
 					year = year.toString().substr(2, 2);
-					var formattedDate = day + '/' + month + "/" + year;
+					var formattedDate = day + ":" + month + ":" + year;
 					var hours = date.getHours()
 					var minutes = date.getMinutes()
 					var seconds = date.getSeconds()
@@ -88,14 +88,8 @@ app.post('/contactUs', function (req, res, next) {
 					if (seconds < 10) {
 						seconds = "0" + seconds
 					}
-					var formattedTime += hours + ":" + minutes + ":" + seconds + " ";
-					if (hours > 11) {
-						formattedTime += "PM"
-					}
-					else {
-						formattedTime += "AM"
-					}
-					formattedDate += formattedTime;
+					var formattedTime = formattedTime + hours + ":" + minutes + ":" + seconds + " ";
+					formattedDate = formattedDate + formattedTime;
 					console.log('The formatted date is' + formattedDate)
 					client.query('INSERT into users values ($1,$2,$3,$4,$5,$6,$7,$8'), [req.body.serialcode, req.body.company, req.body.firstname, req.body.lastname, req.body.phone, req.body.email, req.body.comments, formattedDate]
 						, function (err, result) {
