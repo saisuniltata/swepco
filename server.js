@@ -76,9 +76,9 @@ app.post('/contactUs', function (req, res, next) {
 						}
 						else {
 							console.log('Rows inserted');
+							done();
 						}
 					});
-					client.end();
 				});
 				var transporter = nodemailer.createTransport({
 					service: 'gmail'
