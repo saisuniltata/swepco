@@ -7,15 +7,14 @@ var nodemailer = require('nodemailer');
 var request = require('request');
 var generator = require('xoauth2');
 var port = process.env.PORT || 3000;
-var router = express.Router();
 var PUBLIC_KEY = '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
 	, PRIVATE_KEY = '6Lf5DwcUAAAAAE8LHG1acRK7X8h7HZ49CdWd5_XU';
 var google = {
 	user: 'swepcoindia@gmail.com'
 	, clientId: '46978714862-bihoa2a35ksi077qdh4e0kghb7rrog82.apps.googleusercontent.com'
 	, clientsecret: '0lEN0cj3nhfy5qDLZloIh4Wm'
-	, refreshToken: '1/sfA6o9CSLEMwJMRW7NXebUGSFYDQ7BkQnCirA1Ig1AQ'
-	, accessToken: 'ya29.Ci9pAwu5bLNmyNYp3mpATrTkTmMQnAyptLnJtLi55TkejDyh7sXSTZmTSnjIhc0JJg'
+	, refreshToken: '1/aVnARImzk5bNjPglg1C_LymIIkJoiKkTkMopAOw4-lI'
+	, accessToken: 'ya29.Ci9pAwTfiHs_usiEIPLqpWKmqDXLsqFHibhNGfJ9BIUDGLj_80t5R6f5qr4JKYM2AQ'
 }
 var xoauth2gen = generator.createXOAuth2Generator({
 	user: google.user
