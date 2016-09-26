@@ -71,7 +71,7 @@ app.post('/contactUs', function (req, res, next) {
 				var transporter = nodemailer.createTransport({
 					service: 'gmail'
 					, auth: {
-						xoauth2: generator
+						xoauth2: xoauth2gen
 					}
 				});
 				var mailOptions = {
