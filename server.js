@@ -28,6 +28,7 @@ xoauth2gen.getToken(function (err, token, accessToken, timeout) {
 		return console.log(err);
 	}
 	console.log('Token is ' + token);
+	console.log('Token is ' + token.timeout);
 	console.log('ttl is ' + timeout);
 	console.log("Authorization: Bearer " + accessToken);
 });
