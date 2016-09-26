@@ -75,7 +75,6 @@ app.post('/contactUs', function (req, res, next) {
 					var month = date.getUTCMonth();
 					var day = date.getUTCDate();
 					month = ("0" + (month + 1)).slice(-2);
-					year = year.toString().substr(2, 2);
 					var hours = date.getHours();
 					var minutes = date.getMinutes();
 					var seconds = date.getSeconds();
