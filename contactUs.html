@@ -5,7 +5,7 @@
 		margin: 0;
 	}
 </style>
-<div class="container" id="contact" name="contact">
+<div class="container" id="contact" name="contact" ng-controller="contactController">
 	<div class="row">
 		<h2 class="centered">Thanks for visiting</h2>
 		<hr>
@@ -17,7 +17,7 @@
 				<br/> <span class="icon icon-phone"></span> Santosh G 9481262424
 				<br/> <span class="icon icon-envelop"></span> <a href="mailto:swepcoindia@gmail.com"> swepcoindia@gmail.com</a>
 				<br/> </p>
-			<div ng-controller="contactController">
+			<div>
 				<form name="myForm" class="form-horizontal" role="form" ng-submit="submit(user)" novalidate>
 					<div class="form-group">
 						<label for="company" class="col-md-4 control-label">Company Name</label>
@@ -73,8 +73,8 @@
 				</form>
 			</div>
 			<!-- col -->
-			<div> </div>
 		</div>
-		<!-- row -->
 	</div>
-	<!-- container -->
+	<!-- row -->
+</div>
+<!-- container -->
