@@ -666,21 +666,166 @@ myApp.controller('mainController', ['$scope', function ($scope) {
 		$scope.addSlide();
 	}
 	$scope.oneAtATime = true;
-	$scope.oneHundredOne = {
-		benefits: ['This is benefits1 ', 'This is benefits2 ']
-		, markets: ['This is markets1 ', 'This is markets2 ']
-		, applications: ['This is applications1 ', 'This is applications2 ']
+	$scope.oneHundredFifteen = {
+		benefits: ['Universal usage-one grease for all "H-1" applications ', 'Outstanding performance characteristics in the presence of water and acids', 'Reduced grease consumption', 'Excellent high temperature performance with a dropping point above 450° F(288° C)']
+		, markets: ['Food Processing']
+		, applications: ['All H-1 required grease applications', 'Food processing equipment', 'Water treatment plants']
 		, technical_data: [
 			{
-				pdf: 'https://www.google.com'
-				, description: 'This is google bitch'
-            }, {
-				pdf: 'https://www.yahoo.com'
-				, description: 'This is yahoo bitch'
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_115_food_machinery_grease_sales_brochure_j11199.pdf'
+				, description: 'Data Sheet -- English'
             }
         ]
 	};
-            }]);
+	$scope.oneHundredTwentyOne = {
+		benefits: ['One grease for all applications – eliminates the need to stock multiple greases', 'Extends bearing life', 'Reduced grease consumption', 'Less grease related downtime', 'Offers superior shear stability']
+		, markets: ['Heavy Construction', 'Manufacturing', 'Mining', 'Transportation']
+		, applications: ['Bearings of all types – ball, roller, tapered, thrust, needle, ball, screw', 'Journal bearings, bushings, slideways and spherical bearings', 'Greased gearing, chassis, king pins, u-joints, disc brake calipers, fifth wheels, trailer wheel bearings, couplings', 'General manufacturing up to 375°F (190°C) continuous and 450°F (232°C) intermittent', 'Centralized lube systems', 'Low temperature applications as low as –40°F (-40°C)']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_121_tri-plex_universal_grease_sales_brochure_j11915.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.oneHundredTwentyThree = {
+		benefits: ['Unique protection for heavily loaded bearing', 'Unsurpassed EP Performance', 'Superior corrosion protection', 'Low environmental impact', 'Reduced consumption', 'Longer greasing intervals']
+		, markets: ['Heavy Construction', 'Industrial Equipment', 'Mining', 'Pulp & Paper']
+		, applications: ['Steel mills', 'asphalt plants and paving', 'paper mills', 'plastics, glass and ceramics manufacturing']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_123_ultra_ep_multi-service_grease_sales_brochure_j12281.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.oneHundredSixtyFive = {
+		benefits: ['Gives you a more uniform viscosity over a wide temperature range', 'Helps improve high temperature oxidation and thermal stability', 'Better low temperature performance', 'High performance formulation deliver longer lubricant life']
+		, markets: ['Heavy Construction', 'Manufacturing', 'Mining']
+		, applications: ['Gate, ball, butterly, triple offset, and knife gate valves', 'Pressure seal, pressre relief and check valves', 'Refineries'
+, 'Chemical, utility, industrial, and steam plants', 'Pipe threads', 'Couplings', 'Water well casing', 'Bull and ring gears']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_165_sales_brochure_j13080.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.oneHundredSixtyFour = {
+		benefits: ['Unmatched protection for exposed gearing', 'Wont build up between gear teeth like asphaltic greases ', 'Eliminates need	for periodic cleaning '
+, 'Lubricates over a wide temperature range', 'Totally unaffected by water, dust, dirt or grit', 'Extends greasing intervals', 'Reduces consumption']
+		, markets: ['Heavy Construction', 'Mining']
+		, applications: ['Rotary kiln ring gears', 'Crane and shovel swing gears', 'Draglines', 'Logging donkeys', 'Chain and sprocket drives', 'Wind gears'
+, 'Conveyor equipment', 'Winch trucks', 'Rock crushers', 'Hoists']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_164_ultra_ep_open_gear_lube_sales_brochure_j12227.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.oneHundredThirteen = {
+		benefits: ['Ideal for cold weather applications where pumpability is a concern', 'Fluid grease users can now get the many cost-saving anti-friction benefits of Moly in a grease especially formulated for their unique applications'
+, 'Extreme pressure performance, anti-oxidation characteristics, rust and corrosion control, chemical and thermal stability and water resistance make it a highly effective lubricant in a wide variety of demanding applications.']
+		, markets: ['Heavy Construction', 'Mining', 'Industrial Equipment']
+		, applications: ['Central lube systems', 'Gang mower gear boxes', 'General lubrication', 'Pins, bushings']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_113_moly_fluid_grease_sales_brochure_j11374.pdf '
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.fourHundredTwo = {
+		benefits: ['Elastic Quality Prevents Dripping', 'Maximum Protection for Severe Service', 'Perfect All-Weather Lubricant', 'Exceptional Versality']
+		, markets: ['Industrial Equipment', 'Manufacturing', 'Trucking']
+		, applications: ['chain drive', 'air hammers', 'conveyor rollers and spring packs', 'wire cable']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_402_roller_lube_sales_brochure_j11376.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.oneHundredOne = {
+		benefits: ['One grease for all applications', 'Energy savings through friction reduction', 'Reduced grease consumption', 'Extended equipment life']
+		, markets: ['Industrial Equipment', 'Manufacturing', 'Mining', 'Trucking']
+		, applications: ['Large cranes-lift, clamshell, draglines', 'Heavy weight on the swing gear', 'Roller bearings']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_101_moly_grease_sales_brochure_j11843.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.oneHundredTwo = {
+		benefits: ['Benefits of moly in an economical formulation', 'Friction reduction provides energy savings', 'Reduced grease consumption', 'Extended equipment life']
+		, markets: ['Industrial Equipment', 'Agriculture']
+		, applications: ['Feed mills', 'General industrial lubrication']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_102_organic_moly_grease_sales_brochure_j08082.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.oneHundredFour = {
+		benefits: ['Multipurpose grease for all applications', 'Smooth buttery consistency provides energy savings through friction reduction', 'Extended equipment life']
+		, markets: ['Food Processing', 'Industrial Equipment', 'Manufacturing']
+		, applications: ['Kilns', 'Foundries', 'Conveyor bearings']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_104_high_heat_grease_sales_brochure_j04405.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.oneHundredThree = {
+		benefits: ['Excellent performance under the most adverse conditions', 'Fibrous structure builds up a dust shield', 'Helps neutralize acidic mixtures and other corrosive materials', 'Reduced grease consumption'
+, 'Improves energy efficiency and extends equipment life', 'Anti-friction/anti-wear protection from the Moly Powder']
+		, markets: ['Heavy Construction', 'Industrial Equipment', 'Mining']
+		, applications: ['Bucket pins', 'Chemical processing equipment', 'WWTP aerators, pumps, valves']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_103_moly_hi_plus_grease_sales_brochure_j08443.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.oneHundredFive = {
+		benefits: ['Excellent performance under the most adverse shock and pounding conditions', 'Fibrous structure builds a dust shield', 'Helps neutralize acidic mixtures and other corrosive materials', 'Reduced grease consumption', 'Extended equipment life']
+		, markets: ['Agricultural', 'Heavy Construction', 'Industrial Equipment', 'Mining']
+		, applications: ['Bucket pins', 'Chemical processing equipment', 'WWTP aerators, pumps, valves']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_105_hi_plus_grease_sales_brochure_j04061.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.oneHundredTen = {
+		benefits: ['Polymer extender makes SWEPCO 110 "stay put"', 'Ideal for cold weather applications where pumpability is a concern', 'Cost-cutting performance']
+		, markets: ['Heavy Construction', 'Mining']
+		, applications: ['General lubrication', 'Pins, bushings']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_110_shock_resistant_grease_sales_brochure_j08084.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.oneHundredTwentyThree = {
+		benefits: ['Unique protection for heavily loaded bearing', 'Unsurpassed EP Performance', 'Superior corrosion protection', 'Low environmental impact', 'Reduced consumption', 'Longer greasing intervals']
+		, markets: ['Heavy Construction', 'Industrial Equipment', 'Mining', 'Pulp & Paper']
+		, applications: ['Steel mills', 'asphalt plants and paving', 'paper mills', 'plastics, glass and ceramics manufacturing']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_123_ultra_ep_multi-service_grease_sales_brochure_j12281.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+			}]);
 myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', function ($scope, $http, vcRecaptchaService) {
 	$scope.model = {
 		key: '6Lf5DwcUAAAAAF1dChWB09G-dXjVvOVVjfjmx8lt'
