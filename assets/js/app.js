@@ -37,7 +37,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', funct
 			, templateUrl: '/assets/static/lubricants/lubricants.html'
 			, controller: 'mainController'
 		}).state('lubricants.home', {
-			url: ''
+			url: '/home'
 			, views: {
 				'paragraph': {
 					templateUrl: '/assets/static/lubricants/home.html'
@@ -46,7 +46,6 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', funct
 					templateUrl: '/assets/static/lubricants/115_tabular.html'
 				}
 			}
-			, controller: 'mainController'
 		}).state('lubricants.115', {
 			url: '/115'
 			, views: {
