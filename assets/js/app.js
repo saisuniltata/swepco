@@ -1,6 +1,7 @@
 'use strict';
 var myApp = angular.module('myApp', ['ui.bootstrap', 'ui.router', 'vcRecaptcha']);
 myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
+	$urlRouterProvider.when('/books', '/books/home');
 	$urlRouterProvider.otherwise('/home');
 	$stateProvider.state('home', {
 			url: '/home'
@@ -31,8 +32,20 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', funct
 			url: '/reach-compliant'
 			, templateUrl: '/assets/static/about-swepco/reach-compliant.html'
 		}).state('lubricants', {
-			url: '/lubricants'
+			abstract: true
+			, url: '/lubricants'
 			, templateUrl: '/assets/static/lubricants/lubricants.html'
+			, controller: 'mainController'
+		}).state('lubricants.home', {
+			url: ''
+			, views: {
+				'paragraph': {
+					templateUrl: '/assets/static/lubricants/home.html'
+				}
+				, 'tabular': {
+					templateUrl: '/assets/static/lubricants/115_tabular.html'
+				}
+			}
 			, controller: 'mainController'
 		}).state('lubricants.115', {
 			url: '/115'
