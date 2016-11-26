@@ -217,7 +217,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', funct
 					templateUrl: '/assets/static/lubricants/757_tabular.html'
 				}
 			}
-		}).state('lubricants.201', {
+		}).state('lubricants.201_industrial', {
 			url: '/201_industrial'
 			, views: {
 				'paragraph': {
