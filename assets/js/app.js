@@ -836,6 +836,124 @@ myApp.controller('mainController', ['$scope', function ($scope) {
 					            }
 					        ]
 	};
+	$scope.twoHundredOne = {
+		benefits: ['Reduces gear oil consumption as much as 50-75%', 'Improves equipment performance life, drops operating temperatures 8-18% (29-72øF or 0-22øC)'
+, 'Eliminates dry starts', 'Decreases unscheduled downtime', 'High temperature stability for outstanding wear control and cleanliness', 'Energy savings (electrical/fuel)']
+		, markets: ['Food Processing', 'Manufacturing', 'Transportation', 'Trucking']
+		, applications: ['Industrial gear boxes', 'Standard shift transmissions', 'Differentials']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_201_multi-purpose_gear_lube_sales_brochure_j03567.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.twoHundredTwo = {
+		benefits: ['Improve fuel economy in over-the-road service', 'Controls foaming; lowers operating temperatures'
+, 'Extends oil life as much as two to three times or more', 'Controls deposits, varnish, corrosion, sludge, rust']
+		, markets: ['Automotive', 'Trucking']
+		, applications: ['Automotive', 'Heavy Trucks', 'Light Trucks']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_202_sales_brochure_j13065.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.twoHundredTen = {
+		benefits: ['Reduces lubricant inventory', 'One oil for transmissions, differentials, power take-offs, and industrial gear boxes'
+, 'Improves low temperature lubrication and shifting', 'Helps eliminate lubrication mistakes', 'Reduces energy consumption']
+		, markets: ['Industrial Equipment', 'Manufacturing', 'Mining', 'Trucking']
+		, applications: ['Over the road trucks, transmissions and differentials', 'Industrial gear boxes']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_210_multi-grade_gear_lube_sales_brochure_j07626_0.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.twoHundredTwelve = {
+		benefits: ['Molybdenum Disulfide reduces friction resulting in further energy savings and extended equipment life', 'Reduces lubricant inventory'
+, 'One oil for transmissions, differentials, power take-offs, and industrial gear boxes', 'Improves low temperature lubrication and shifting'
+, 'Helps eliminate lubrication mistakes']
+		, markets: ['Industrial Equipment', 'Manufacturing', 'Mining']
+		, applications: ['Over the road trucks, transmissions and differentials', 'Industrial gear boxes']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_212_molyxp_multi-grade_gear_lube_sales_brochure_j12153.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.sevenHundredFiftySeven = {
+		benefits: ['USDA/NSF/CFIA H1 Compliant', 'Formulated for a wide range of open and closed gear and bearing applications in food processing plants'
+, 'Pure synthesized hydrocarbon base provides thermally stable performance over a wide temperature range', 'State-of-the-art non-toxic additive package'
+, 'Excellent H1 anti-wear & extreme pressure characteristics protect heavily loaded equipment from wear', 'Excellent resistance to moisture and acidic conditions common in food & beverage plants'
+, 'Outstanding lubricity reduces energy loads', 'Recommended for enclosed gear boxes, gear reducers, drive units, couplings, open gearing, sprockets, chains and oiled bearings'
+, 'Compatible with most common seals & paint finishes']
+		, markets: ['Food Processing']
+		, applications: ['Enclosed gear boxes', 'Gear reducers', 'Drive units', 'Couplings', 'Open gearing', 'Sprockets', 'Chains and oiled bearings']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_757_premium_food_grade_gear_bearing_oil_sales_brochure_j12120.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.twoHundredOneIndustrial = {
+		benefits: ['Reduces gear oil consumption as much as 50-75%', 'Improves equipment performance life, drops operating temperatures 8-18% (29-72øF or 0-22øC)'
+, 'Eliminates dry starts', 'Decreases unscheduled downtime', 'High temperature stability for outstanding wear control and cleanliness', 'Energy savings (electrical/fuel)']
+		, markets: ['Food Processing', 'Manufacturing', 'Transportation', 'Trucking']
+		, applications: ['Industrial gear boxes', 'Standard shift transmissions', 'Differentials']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_201_multi-purpose_gear_lube_sales_brochure_j03567.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.twoHundredThree = {
+		benefits: ['Reduces gear oil consumption as much as 50-75%', 'Extends equipment life, drops operating temperatures 8-18% (29-82øF or 0-22øC)'
+, 'Eliminates dry starts', 'Decreases unscheduled downtime, high temperature stability, outstanding wear control and cleanliness'
+, 'Molybdenum Disulfide reduces friction resulting in further energy savings and extended equipment life', 'Quieter operation']
+		, markets: ['Heavy Construction', 'Industrial Equipment', 'Manufacturing', 'Mining', 'Trucking']
+		, applications: ['Over the road trucks, transmissions and differentials', 'Industrial gear boxes']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_203_molyxp_gear_lube_sales_brochure_j03865.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.sevenHundredSix = {
+		benefits: ['Gives a more uniform viscosity over a wide temperature range', 'Improves resistance to high temperature oxidation'
+, 'Reduces oil thickening and degredation', 'Helps prevent sludge, varnish and carbon deposits that result from oxidation'
+, 'Bonds to metal surfaces to keep moisture and acids from penetrating and attacking', 'Can lower operating temperatures by dispersing foam and releasing trapped heat'
+, 'Enables the oil to penetrate the surface for better lubrication', 'Improves film strength of the oil giving it the ability to withstand extreme pressures'
+, 'Superior low temperature fluidity and reduced start-up wear']
+		, markets: ['Industrial Equipment', 'Marine']
+		, applications: ['Gear Boxes & Reducers', 'Journal & Anti-Friction Bearings', 'Geared Couplings', 'Blowers', 'Pumps', 'Air Line Oilers', 'Conveyors', 'Oil Cups'
+, 'Drive Chains', 'Mixers & Agitators', 'Presses & Extruders', 'Dryers']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_706_sales_brochure_j12112_0.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
+	$scope.twoHundredTwentyTwo = {
+		benefits: ['Superior protection for heavily loaded gearing', 'Unsurpassed EP performance', 'Additional anti-wear protection', 'Makes inspection easier'
+, 'Superior corrosion protection', 'Reduced consumption', 'Ease of Application; less cleanup', 'Saves money', 'Includes diluent for easier application']
+		, markets: ['Agricultural', 'Heavy Construction', 'Industrial Equipment', 'Lumber/Forestry', 'Manufacturing', 'Mining']
+		, applications: ['mines', 'steel mills', 'lumber mills', 'Stevedoring', 'Sand and gravel companies', 'Contractors', 'Loggers', 'Cement plants'
+, 'Excavating contractors', 'Farmers', 'Industrial plants', 'Other heavy-duty']
+		, technical_data: [
+			{
+				pdf: 'http://www.swepcolube.com/sites/default/files/package_inserts/swepco_222_sprayable_ep_open_gear_lube_sales_brochure_j12280.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
 								}]);
 myApp.controller('contactController', ['$scope', '$http', 'vcRecaptchaService', function ($scope, $http, vcRecaptchaService) {
 	$scope.model = {
