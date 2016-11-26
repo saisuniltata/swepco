@@ -197,6 +197,16 @@ myApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', funct
 					templateUrl: '/assets/static/lubricants/202_tabular.html'
 				}
 			}
+		}).state('lubricants.210', {
+			url: '/210'
+			, views: {
+				'paragraph': {
+					templateUrl: '/assets/static/lubricants/210_paragraph.html'
+				}
+				, 'tabular': {
+					templateUrl: '/assets/static/lubricants/210_tabular.html'
+				}
+			}
 		}).state('lubricants.212', {
 			url: '/212'
 			, views: {
