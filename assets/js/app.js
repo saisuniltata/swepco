@@ -1080,6 +1080,18 @@ myApp.controller('mainController', ['$scope', function ($scope) {
             }
         ]
 	};
+	$scope.fiveHundredTwo = {
+		benefits: ['Protects engines against friction, reduces heat and wear, helps eliminate sticking valve lifters', 'reduces hydraulic lifter noise'
+, 'Reduces oil consumption', 'Extends engine life']
+		, markets: ['Automotive', 'Heavy Construction', 'Trucking']
+		, applications: ['High performance automotive repair shops', 'Mobile construction equipment', 'Over the road trucks', 'Fleet operations']
+		, technical_data: [
+			{
+				pdf: 'http://swepcolube.com/sites/default/files/package_inserts/swepco_502_premium_engine_oil_improver_sales_brochure_j03776_0.pdf'
+				, description: 'Data Sheet -- English'
+            }
+        ]
+	};
 	$scope.sevenHundredEleven = {
 		benefits: ['Extends transission life and reduces the cost of operation', 'Longer seal life and extended drain and service intervals', 'Protect and extends the life of synchronizers', 'Extends component and fluid life', 'Minimizes wear during severe service', 'Reduces wear at cold starts and improves shifting', 'When used with LOA it will lower operating costs', 'Helps to improve fuel economy and lower operating costs']
 		, markets: ['Agricultural', 'Automotive', 'Food Storage', 'Heavy Construction', 'Industrial Equipment', 'Mining', 'Transportation', 'Trucking']
